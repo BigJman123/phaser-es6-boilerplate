@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<!-- saved from url=(0063)https://www.joshmorony.com/level-up-your-phaser-games-with-es6/ -->
+<html lang="en-US"><!-- Convergence WordPress Theme by Maximus --><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<!-- Meta -->
+		
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="vz-5q_D6FZ6_D7V_LJHQMz1COy-8w7AOlqoaHGnRTf8">		
+		<!-- Title -->
+		<title>Level up Your Phaser Games with ES6 | joshmorony - Build Mobile Apps with HTML5</title>
+													
+		<!-- RSS & Pingbacks -->
+					<link rel="alternate" type="application/rss+xml" title="joshmorony – Build Mobile Apps with HTML5 RSS Feed" href="https://www.joshmorony.com/feed/">
+		
+		<link rel="pingback" href="https://www.joshmorony.com/xmlrpc.php">
+		
+		<!-- Favicon -->
+					<link rel="shortcut icon" href="https://www.joshmorony.com/wp-content/uploads/2015/05/josh-favicon.png">
+				
+		<!-- Hooks -->
+		
+<!-- All in One SEO Pack 2.3.12.2.1 by Michael Torbert of Semper Fi Web Design[466,564] -->
+<link rel="author" href="https://plus.google.com/+JoshuaMorony">
+<meta name="description" content="In this tutorial I am going to show you how you can use ES6 in your own Phaser games, but first let&#39;s talk a little bit about what ES6 even is.">
+
+<link rel="canonical" href="https://www.joshmorony.com/level-up-your-phaser-games-with-es6/">
+<!-- /all in one seo pack -->
+<link rel="dns-prefetch" href="https://s0.wp.com/">
+<link rel="dns-prefetch" href="https://secure.gravatar.com/">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="joshmorony - Build Mobile Apps with HTML5 » Feed" href="https://www.joshmorony.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="joshmorony - Build Mobile Apps with HTML5 » Comments Feed" href="https://www.joshmorony.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="joshmorony - Build Mobile Apps with HTML5 » Level up Your Phaser Games with ES6 Comments Feed" href="https://www.joshmorony.com/level-up-your-phaser-games-with-es6/feed/">
+		<script async="" src="./Main.js_files/saved_resource"></script><script src="./Main.js_files/cb=gapi.loaded_2" async=""></script><script async="" src="https://www.google-analytics.com/analytics.js"></script><script src="./Main.js_files/cb=gapi.loaded_1" async=""></script><script src="./Main.js_files/cb=gapi.loaded_0" async=""></script><script id="twitter-wjs" src="./Main.js_files/widgets.js"></script><script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.joshmorony.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=be359d673adcb788f23222ea92eb92b1"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),!(j.toDataURL().length<3e3)&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,65039,8205,55356,57096),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,55356,57096),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55357,56425,55356,57341,8205,55357,56507),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55357,56425,55356,57341,55357,56507),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./Main.js_files/wp-emoji-release.min.js" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="logichop-conditions-css" href="./Main.js_files/admin-ajax.php" type="text/css" media="all">
+<link rel="stylesheet" id="wp-pagenavi-css" href="./Main.js_files/pagenavi-css.css" type="text/css" media="all">
+<link rel="stylesheet" id="googlefont-source-sans-pro-css" href="./Main.js_files/css" type="text/css" media="all">
+<link rel="stylesheet" id="googlefont-roboto-css" href="./Main.js_files/css(1)" type="text/css" media="all">
+<link rel="stylesheet" id="style-css" href="./Main.js_files/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="style-css-css" href="./Main.js_files/style.css.php" type="text/css" media="all">
+<link rel="stylesheet" id="custom-css-css" href="./Main.js_files/custom.css.php" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-css" href="./Main.js_files/font-awesome.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="responsive-css" href="./Main.js_files/responsive.css" type="text/css" media="all">
+<link rel="stylesheet" id="visitor_css-css" href="./Main.js_files/visitor.css" type="text/css" media="all">
+<link rel="stylesheet" id="jetpack_css-css" href="./Main.js_files/jetpack.css" type="text/css" media="all">
+<script type="text/javascript" src="./Main.js_files/jquery.js"></script>
+<script type="text/javascript" async="async" data-cfasync="true" src="./Main.js_files/jquery-migrate.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var logichop = {"ajaxurl":"https:\/\/www.joshmorony.com\/wp-admin\/admin-ajax.php","pid":"5455","gid":"0","cid":"","gcid":"0","rcid":"","redirect":"","goal_ev":"","goal_el":"","goal_js":"0","views":"0"};
+/* ]]> */
+</script>
+<script type="text/javascript" async="async" data-cfasync="true" src="./Main.js_files/ajax-methods.min.js"></script>
+<script type="text/javascript" async="async" data-cfasync="true" src="./Main.js_files/js-methods.min.js"></script>
+<script type="text/javascript" async="async" data-cfasync="true" src="./Main.js_files/jquery.slicknav.min.js"></script>
+<link rel="https://api.w.org/" href="https://www.joshmorony.com/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.joshmorony.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.joshmorony.com/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="Boosting Scroll Performance in Ionic 2" href="https://www.joshmorony.com/boosting-scroll-performance-in-ionic-2/">
+<link rel="next" title="Integrating Ionic 2 with the Dropbox API – Part 1" href="https://www.joshmorony.com/integrating-ionic-2-with-the-dropbox-api-part-1/">
+
+<link rel="shortlink" href="https://wp.me/p6othq-1pZ">
+<link rel="alternate" type="application/json+oembed" href="https://www.joshmorony.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.joshmorony.com%2Flevel-up-your-phaser-games-with-es6%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://www.joshmorony.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.joshmorony.com%2Flevel-up-your-phaser-games-with-es6%2F&amp;format=xml">
+<style type="text/css">.crp_related ul {
+/*margin: 10px 0 20px 10%;*/
+}
+
+#crp_related li {
+list-style-type: none !important;
+}
+
+.crp_related .crp_title {
+/*width: 155px !important;
+height: 145px !important;*/
+}</style><link rel="author" href="https://plus.google.com/+JoshuaMorony">
+<script data-cfasync="false" src="https://load.sumome.com/" data-sumo-platform="wordpress" data-sumo-site-id="59bd3ed657c30fdf3135d2f34fd26dad4da440d2e4e70fc881664b7e1c44cb33" async=""></script><script type="text/javascript">
+(function(url){
+	if(/(?:Chrome\/26\.0\.1410\.63 Safari\/537\.31|WordfenceTestMonBot)/.test(navigator.userAgent)){ return; }
+	var addEvent = function(evt, handler) {
+		if (window.addEventListener) {
+			document.addEventListener(evt, handler, false);
+		} else if (window.attachEvent) {
+			document.attachEvent('on' + evt, handler);
+		}
+	};
+	var removeEvent = function(evt, handler) {
+		if (window.removeEventListener) {
+			document.removeEventListener(evt, handler, false);
+		} else if (window.detachEvent) {
+			document.detachEvent('on' + evt, handler);
+		}
+	};
+	var evts = 'contextmenu dblclick drag dragend dragenter dragleave dragover dragstart drop keydown keypress keyup mousedown mousemove mouseout mouseover mouseup mousewheel scroll'.split(' ');
+	var logHuman = function() {
+		var wfscr = document.createElement('script');
+		wfscr.type = 'text/javascript';
+		wfscr.async = true;
+		wfscr.src = url + '&r=' + Math.random();
+		(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(wfscr);
+		for (var i = 0; i < evts.length; i++) {
+			removeEvent(evts[i], logHuman);
+		}
+	};
+	for (var i = 0; i < evts.length; i++) {
+		addEvent(evts[i], logHuman);
+	}
+})('//www.joshmorony.com/?wordfence_logHuman=1&hid=81ADD0443D636D45CC122BDE1C2243E1');
+</script>
+<link rel="dns-prefetch" href="https://v0.wordpress.com/">
+<style type="text/css">img#wpstats{display:none}</style>
+		<!-- Ad split testing with AmpedSense: http://www.ampedsense.com -->
+		<script>
+		var AmpedSense = {};
+		AmpedSense.segments = {"0":{"devices":"dt","criteria":"allposts","segmentname":"All Posts","hide":false,"recipes":{"7":{"recipename":"ebook170417","channelname":"Amped_HTM_ebook170417","whenstarted":1492389080,"ads":[{"custom":"no","adsize":"300x250","adtype":"TI","adlocation":"IR","adpadding":"0px 0px 10px 10px","admargin":"","color":"default"},{"custom":"html","customcode":"<a href=\"https:\/\/joshmorony.com\/building-mobile-apps-with-ionic-2\/?utm_source=homepage&utm_medium=banner&utm_campaign=incontent170417\"><img src=\"\/\/www.joshmorony.com\/wp-content\/uploads\/2017\/04\/ionic3ad.png\" alt=\"Ionic eBook\" style=\"width: 70%;\" \/><\/a>","adlocation":"2C","adpadding":"10px","admargin":"","color":"default"}],"active":true,"channelid":"4637521974"}}},"1":{"devices":"p","criteria":"default","segmentname":"Phones Entire Site","hide":false,"recipes":[{"recipename":"Standard_Mobile","channelname":"Amped_HTM_Standard_Mobile","whenstarted":1456819396,"ads":[{"custom":"no","adsize":"234x60","adtype":"TI","adlocation":"AP","adpadding":"0px 0px 10px 0px","admargin":"","color":"default"},{"custom":"no","adsize":"234x60","adtype":"TI","adlocation":"2C","adpadding":"10px","admargin":"","color":"default"}],"active":true,"channelid":"7491709975"}]},"2":{"criteria":"default","segmentname":"All Traffic","devices":"dtp"}};
+		AmpedSense.adsensepublisherid = 'pub-6687906629460201';
+		AmpedSense.is_page = false;
+		AmpedSense.is_single = true;
+		AmpedSense.is_category = false;
+		AmpedSense.is_front_page = false;
+		AmpedSense.post_ID = 5455;
+		AmpedSense.post_category_IDs = [142];
+		AmpedSense.category_ID = 0;
+		</script>
+		<!--<script src="https://www.joshmorony.com/wp-content/plugins/ampedsense-adsense-split-tester/resources/client.max.js"></script>-->
+		<script>
+AmpedSense.QueryStringToObj=function(){var a={},e,b,c,d;e=window.location.search.split("&");c=0;for(d=e.length;c<d;c++)b=e[c].split("="),a[b[0]]=b[1];return a};
+if(-1==window.location.search.indexOf("as_preview=1")){AmpedSense.device="d";"function"==typeof window.matchMedia&&(window.matchMedia("only screen and (max-device-width: 640px)").matches?AmpedSense.device="p":window.matchMedia("only screen and (max-device-width: 1024px)").matches&&(AmpedSense.device="t"));AmpedSense.segmenti=-1;for(var i in AmpedSense.segments)if(AmpedSense.segments.hasOwnProperty(i)){var segment=AmpedSense.segments[i];if(-1!=segment.devices.indexOf(AmpedSense.device)){if("allpages"==
+segment.criteria&&AmpedSense.is_page){AmpedSense.segmenti=i;break}if("allposts"==segment.criteria&&AmpedSense.is_single){AmpedSense.segmenti=i;break}if("alllists"==segment.criteria&&AmpedSense.is_category){AmpedSense.segmenti=i;break}if("homepage"==segment.criteria&&AmpedSense.is_front_page){AmpedSense.segmenti=i;break}if(("page"==segment.criteria||"post"==segment.criteria)&&AmpedSense.post_ID==segment.criteriaparam){AmpedSense.segmenti=i;break}if("list"==segment.criteria&&AmpedSense.category_ID==
+segment.criteriaparam){AmpedSense.segmenti=i;break}if("category"==segment.criteria&&AmpedSense.post_category_IDs.length&&-1!=AmpedSense.post_category_IDs.indexOf(parseInt(segment.criteriaparam))){AmpedSense.segmenti=i;break}if("default"==segment.criteria){AmpedSense.segmenti=i;break}}}if(-1!=AmpedSense.segmenti){var segment=AmpedSense.segments[AmpedSense.segmenti],recipekeys=[],j;for(j in segment.recipes)segment.recipes.hasOwnProperty(j)&&recipekeys.push(j);var chosenrecipekey=recipekeys[Math.floor(Math.random()*
+recipekeys.length)];chosenrecipekey&&(AmpedSense.recipe=segment.recipes[chosenrecipekey])}}else{AmpedSense.recipe={};AmpedSense.recipe.ads=[];AmpedSense.recipe.channelid="0";qsObj=AmpedSense.QueryStringToObj();var paramNames="custom adsize adtype adlocation adpadding admargin color border_color color_bg color_link color_text color_url".split(" ");for(i=1;i<=qsObj.as_numads;i++){var newad={};for(j=0;j<=paramNames.length;j++){var paramName=paramNames[j],qsParamName="as_"+paramName+"%5B"+i+"%5D";qsObj[qsParamName]?
+newad[paramName]=qsObj[qsParamName]:(qsParamName="as_"+paramName+"["+i+"]",qsObj[qsParamName]&&(newad[paramName]=qsObj[qsParamName]));"custom"==paramName&&("html"==qsObj[qsParamName]?newad.customcode="<div style='border:2px solid white; background:black; color:white'>CUSTOM CODE HERE<br/>Custom code cannot be previewed for security reasons.<br/>On live traffic this box will be replaced with your custom code.</div>":"resp"==qsObj[qsParamName]&&(newad.customcode="<div style='border:2px solid white; background:black; color:white'>RESPONSIVE AD UNIT HERE<br/>Responsive code cannot be previewed for security reasons.<br/>On live traffic this box will be replaced with your responsive ad unit.</div>"))}AmpedSense.recipe.ads.push(newad)}}
+AmpedSense.OptimizeAdSpot=function(a){if(AmpedSense.recipe)for(var e in AmpedSense.recipe.ads)if(AmpedSense.recipe.ads.hasOwnProperty(e)){var b=AmpedSense.recipe.ads[e];if(b.adlocation==a){var c=AmpedSense.RenderAd(b,AmpedSense.recipe.channelid),d=b.adpadding&&""!=b.adpadding?"padding: "+b.adpadding+"; ":"",b=b.admargin&&""!=b.admargin?"margin: "+b.admargin+"; ":"";"AP"==a||"PC"==a||"1C"==a||"2C"==a||"3C"==a||"BP"==a||"SA"==a||"SB"==a||"SC"==a||"SD"==a||"SE"==a||"SF"==a||"CA"==a||"CB"==a||"CC"==a||
+"CD"==a||"CE"==a||"CF"==a?document.write("<div style='width:100%; text-align:center; "+d+b+"'>"+c+"</div>"):"IL"==a||"PL"==a||"1L"==a||"2L"==a||"3L"==a?document.write("<div style='float:left; "+d+b+"'>"+c+"</div>"):"IR"!=a&&"PR"!=a&&"1R"!=a&&"2R"!=a&&"3R"!=a||document.write("<div style='float:right; "+d+b+"'>"+c+"</div>")}}};
+AmpedSense.RenderAd=function(a,e){var b="";if("resp"==a.custom||"html"==a.custom)b=a.customcode;else{var c=b=0,d="";"728x90"==a.adsize?(b=728,c=90,d="728x90_as"):"320x100"==a.adsize?(b=320,c=100,d="320x100_as"):"970x250"==a.adsize?(b=970,c=250,d="970x250_as"):"970x90"==a.adsize?(b=970,c=90,d="970x90_as"):"468x60"==a.adsize?(b=468,c=60,d="468x60_as"):"320x50"==a.adsize?(b=320,c=50,d="320x50_as"):"234x60"==a.adsize?(b=234,c=60,d="234x60_as"):"300x600"==a.adsize?(b=300,c=600,d="300x600_as"):"300x1050"==
+a.adsize?(b=300,c=1050,d="300x1050_as"):"160x600"==a.adsize?(b=160,c=600,d="160x600_as"):"120x600"==a.adsize?(b=120,c=600,d="120x600_as"):"120x240"==a.adsize?(b=120,c=240,d="120x240_as"):"336x280"==a.adsize?(b=336,c=280,d="336x280_as"):"300x250"==a.adsize?(b=300,c=250,d="300x250_as"):"250x250"==a.adsize?(c=b=250,d="250x250_as"):"200x200"==a.adsize?(c=b=200,d="200x200_as"):"180x150"==a.adsize?(b=180,c=150,d="180x150_as"):"125x125"==a.adsize?(c=b=125,d="125x125_as"):"728x15"==a.adsize?(b=728,c=15,d=
+"728x15_0ads_al"):"468x15"==a.adsize?(b=468,c=15,d="468x15_0ads_al"):"200x90"==a.adsize?(b=200,c=90,d="200x90_0ads_al"):"180x90"==a.adsize?(b=180,c=90,d="180x90_0ads_al"):"160x90"==a.adsize?(b=160,c=90,d="160x90_0ads_al"):"120x90"==a.adsize&&(b=120,c=90,d="120x90_0ads_al");var f="text_image";"T"==a.adtype?f="text":"I"==a.adtype&&(f="image");var g="";a.color&&"custom"==a.color&&(g="google_color_border = '"+a.border_color+"';google_color_bg = '"+a.color_bg+"';google_color_link = '"+a.color_link+"';google_color_text = '"+
+a.color_text+"';google_color_url = '"+a.color_url+"';");b="<script type='text/javascript'>google_ad_client = '"+AmpedSense.adsensepublisherid+"';google_ad_width = "+b+";google_ad_height = "+c+";google_ad_format = '"+d+"';google_ad_type = '"+f+"';google_ad_channel = '"+e+"'; "+g+"\x3c/script><script type='text/javascript' src='//pagead2.googlesyndication.com/pagead/show_ads.js'>\x3c/script>"}return b};
+		</script>
+		
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Level up Your Phaser Games with ES6">
+<meta property="og:url" content="https://www.joshmorony.com/level-up-your-phaser-games-with-es6/">
+<meta property="og:description" content="Since starting with Ionic 2 I’ve fallen in love with ECMAScript 6 (ES6), and once I started working with Phaser again it just didn’t feel as nice working with ES5. In this tutorial I am…">
+<meta property="article:published_time" content="2016-04-19T11:45:04+00:00">
+<meta property="article:modified_time" content="2017-04-04T09:55:32+00:00">
+<meta property="og:site_name" content="joshmorony - Build Mobile Apps with HTML5">
+<meta property="og:image" content="https://www.joshmorony.com/wp-content/uploads/2016/04/es6-phaser.png">
+<meta property="og:image:width" content="500">
+<meta property="og:image:height" content="500">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:image" content="https://www.joshmorony.com/wp-content/uploads/2016/04/es6-phaser.png?w=640">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" type="text/css" href="./Main.js_files/shCore.css"><link rel="stylesheet" type="text/css" href="./Main.js_files/solarized-dark.css"><style type="text/css" id="syntaxhighlighteranchor"></style>
+		    
+	<script type="text/javascript" src="./Main.js_files/jquery.min.js"></script><script src="./Main.js_files/CKJS4.js" id="_ck_js_tag"></script><script type="text/javascript" charset="utf-8" async="" src="./Main.js_files/button.80ba267f37d7093ec36703643939b173.js"></script><link rel="stylesheet" type="text/css" id="gravatar-card-css" href="./Main.js_files/hovercard.css"><link rel="stylesheet" type="text/css" id="gravatar-card-services-css" href="./Main.js_files/services.css"><script type="text/javascript" async="" src="./Main.js_files/embed.js"></script><script async="" type="text/javascript" src="./Main.js_files/count.js"></script><style type="text/css">
+:root .wpInsertInPostAd,
+:root #header + #content > #left > #rlblock_left,
+:root #content > #center > .dose > .dosesingle,
+:root #content > #right > .dose > .dosesingle
+{ display: none !important; }
+:root *[vlgri54][hidden] { display: none !important; }</style><link rel="preload" as="style" href="https://c.disquscdn.com/next/embed/styles/lounge.c1f55c45ca93f97bb7348ad6fcda5189.css"><link rel="preload" as="script" href="https://c.disquscdn.com/next/embed/common.bundle.0702ac0e41b9194837a4927b4baa044a.js"><link rel="preload" as="script" href="https://c.disquscdn.com/next/embed/lounge.bundle.0f15c1dc52316493f9631be34575e27c.js"><link rel="preload" as="script" href="https://disqus.com/next/config.js"><style>.gc-bubbleDefault{background-color:transparent !important;text-align:left;padding:0 !important;margin:0 !important;border:0 !important;table-layout:auto !important}.gc-reset{background-color:transparent !important;border:0 !important;padding:0 !important;margin:0 !important;text-align:left}.pls-bubbleTop{border-bottom:1px solid #ccc !important}.pls-topTail,.pls-vertShimLeft,.pls-contentLeft{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/border_3.gif) !important}.pls-topTail{background-repeat:repeat-x !important;background-position:bottom !important}.pls-vertShim{background-color:#fff !important;text-align:right}.tbl-grey .pls-vertShim{background-color:#f5f5f5 !important}.pls-vertShimLeft{background-repeat:repeat-y !important;background-position:right !important;height:4px}.pls-vertShimRight{height:4px}.pls-confirm-container .pls-vertShim{background-color:#fff3c2 !important}.pls-contentWrap{background-color:#fff !important;position:relative !important;vertical-align:top}.pls-contentLeft{background-repeat:repeat-y;background-position:right;vertical-align:top}.pls-dropRight{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleDropR_3.png) !important;background-repeat:repeat-y !important;vertical-align:top}.pls-vert,.pls-tailleft,.pls-dropTR .pls-dropBR,.pls-dropBL,.pls-vert img{vertical-align:top}.pls-dropBottom{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleDropB_3.png) !important;background-repeat:repeat-x !important;width:100%;vertical-align:top}.pls-topLeft{background:inherit !important;text-align:right;vertical-align:bottom}.pls-topRight{background:inherit !important;text-align:left;vertical-align:bottom}.pls-bottomLeft{background:inherit !important;text-align:right}.pls-bottomRight{background:inherit !important;text-align:left;vertical-align:top}.pls-tailtop,.pls-tailright,.pls-tailbottom,.pls-tailleft{display:none;position:relative}.pls-tailbottom,.pls-tailtop,.pls-tailright,.pls-tailleft,.pls-dropTR,.pls-dropBR,.pls-dropBL{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleSprite_3.png) !important;background-repeat:no-repeat}.tbl-grey .pls-tailbottom,.tbl-grey .pls-tailtop,.tbl-grey .pls-tailright,.tbl-grey .pls-tailleft,.tbl-grey .pls-dropTR,.tbl-grey .pls-dropBR,.tbl-grey .pls-dropBL{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleSprite-grey.png) !important}.pls-tailbottom{background-position:-23px 0}.pls-confirm-container .pls-tailbottom{background-position:-23px -10px}.pls-tailtop{background-position:-19px -20px}.pls-tailright{background-position:0 0}.pls-tailleft{background-position:-10px 0}.pls-tailtop{vertical-align:top}.gc-bubbleDefault td{line-height:0;font-size:0}.pls-topLeft img,.pls-topRight img,.pls-tailbottom{vertical-align:bottom}.pls-bottomLeft img,.bubbleDropTR,.pls-dropBottomL img,.pls-dropBottom img,.pls-dropBottomR img,.pls-bottomLeft{vertical-align:top}.pls-dropTR{background-position:0 -22px}.pls-dropBR{background-position:0 -27px}.pls-dropBL{background-position:0 -16px}.pls-spacertop,.pls-spacerright,.pls-spacerbottom,.pls-spacerleft{position:static !important}.pls-spinner{bottom:0;position:absolute;left:0;margin:auto;right:0;top:0} </style><style type="text/css">
+:root .adsbox
+{ display: none !important; }</style><script type="text/javascript" async="" src="https://www.joshmorony.com/?wordfence_logHuman=1&amp;hid=81ADD0443D636D45CC122BDE1C2243E1&amp;r=0.04498215746426393"></script></head>
+
+
+	<body class="post-template-default single single-post postid-5455 single-format-standard logichop-views-0" itemscope="itemscope" itemtype="http://schema.org/WebPage">
+
+	    <header id="header" role="banner" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+		 
+			<div id="links">
+				<div class="wrap clearfix">
+
+					
+						<ul id="menu-top-menu" class="menu"><li id="menu-item-1261" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-1261"><a href="https://www.joshmorony.com/blog/">ALL</a></li>
+<li id="menu-item-6723" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-6723"><a href="https://www.joshmorony.com/category/ionic-tutorials/">Ionic</a></li>
+<li id="menu-item-7468" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7468"><a href="https://www.joshmorony.com/tag/beginner/">Beginner</a></li>
+<li id="menu-item-7469" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7469"><a href="https://www.joshmorony.com/tag/intermediate/">Intermediate</a></li>
+<li id="menu-item-7470" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7470"><a href="https://www.joshmorony.com/tag/advanced/">Advanced</a></li>
+<li id="menu-item-5709" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5709"><a href="https://www.joshmorony.com/tag/games/">Phaser</a></li>
+<li id="menu-item-1263" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1263"><a href="https://www.joshmorony.com/about-me/">About</a></li>
+<li id="menu-item-1262" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1262"><a href="https://www.joshmorony.com/contact/">Contact</a></li>
+</ul>
+					
+					
+					<ul class="social">
+																		<!--<li><a href="https://www.joshmorony.com/feed/" title="Receive post updates"><i class="fa fa-rss-square"></i>Feed</a></li>-->
+<li><a rel="ck_modal" href="https://www.joshmorony.com/level-up-your-phaser-games-with-es6/#ck_modal"><i class="fa fa-envelope-o"></i>SUBSCRIBE</a></li>
+<li><a style="color: #e2277d;text-decoration: underline;" href="https://www.joshmorony.com/building-mobile-apps-with-ionic-2/?utm_source=navbar&amp;utm_campaign=learn_ionic_two&amp;utm_medium=site"><i class="fa fa-bookmark"></i>Learn Ionic</a></li>
+
+					</ul>
+
+				</div>
+			</div>
+
+			<div class="wrap clearfix">
+
+			    <!-- Logo -->
+				<div class="logo" itemprop="headline">
+											<a href="https://www.joshmorony.com/" title="joshmorony – Build Mobile Apps with HTML5" class="custom"><img src="./Main.js_files/2017logo.png" title="joshmorony – Build Mobile Apps with HTML5" alt="joshmorony – Build Mobile Apps with HTML5"></a>
+									</div>
+
+				<!-- Search -->
+<form class="search-form clearfix" action="https://www.joshmorony.com/" method="get" role="search">
+	<input class="search-input" type="search" name="s" placeholder="To search, type and hit enter.">
+	<button class="search-submit btn" type="submit" role="button"><i class="fa fa-search"></i></button>
+</form>
+			</div>
+
+<script async="async" src="./Main.js_files/CKJS4(1).js"></script>
+
+<div style="display: none;" class="logichop-js" data-cid="6631" data-event="show" data-not="false" data-css-add="" data-css-remove="">
+<div id="banner-book-message">
+	<div id="mobile-development">
+		<div class="wrap">
+
+  				If you enjoyed the preview of <a style="color: white; text-decoration: underline;" href="https://www.joshmorony.com/building-mobile-apps-with-ionic-2/?utm_source=logichop&amp;utm_campaign=previewed&amp;utm_medium=footer#buy">Building Mobile Apps with Ionic</a>, you can grab your copy <a style="color: white; text-decoration: underline;" href="https://www.joshmorony.com/building-mobile-apps-with-ionic-2/?utm_source=logichop&amp;utm_campaign=previewed&amp;utm_medium=footer#buy">here</a>.
+
+  				<button style="opacity: 0.4; padding:13px; border: 1px solid #fff; background-color: #cecece; margin-left: 5px;" class="subscribe_button ck_subscribe_button btn fields" onclick="document.getElementById(&#39;banner-book-message&#39;).style.display=&#39;none&#39;;">X</button>
+		</div>
+	</div>
+</div>
+</div>
+
+<div style="" class="logichop-js" data-cid="6635" data-event="show" data-not="false" data-css-add="" data-css-remove="">
+<div id="banner-course-message" style="display: none;">
+	<div id="mobile-development">
+		<div class="wrap">
+
+			<div id="ck_success_msg" style="display:none; background: transparent; border: none; padding: 0;">
+			  <p>Success! Now check your email to confirm your subscription.</p>
+			</div>
+
+			<!--  Form starts here  -->
+			<form style="display: inline-block; margin-left: 10px;" id="ck_subscribe_form" class="ck_subscribe_form" action="https://app.convertkit.com/landing_pages/42824/subscribe" data-remote="true">
+
+			  <span>Learn the Ionic essentials with a <strong>FREE</strong> 7 day email course: &nbsp;</span>
+
+			  <input type="hidden" value="{&quot;form_style&quot;:&quot;minimal&quot;,&quot;embed_style&quot;:&quot;inline&quot;,&quot;embed_trigger&quot;:&quot;scroll_percentage&quot;,&quot;scroll_percentage&quot;:&quot;70&quot;,&quot;delay_seconds&quot;:&quot;10&quot;,&quot;display_position&quot;:&quot;br&quot;,&quot;display_devices&quot;:&quot;all&quot;,&quot;days_no_show&quot;:&quot;15&quot;,&quot;converted_behavior&quot;:&quot;hide&quot;}" id="ck_form_options">
+			  <input type="hidden" name="id" value="42824" id="landing_page_id">
+			  <div class="ck_errorArea">
+			    <div id="ck_error_msg" style="display:none">
+			      <p>There was an error submitting your subscription. Please try again.</p>
+			    </div>
+			  </div>
+			  <div style="display:inline-block;" class="ck_control_group ck_email_field_group">
+			    <label class="ck_label" for="ck_emailField" style="display: none">Email Address</label>
+			    <input style="padding: 5px; width: 200px; font-size:0.9em; border: 1px solid #fff;" type="email" name="email" class="ck_email_address" id="ck_emailField" placeholder="you@example.com" required="">
+			  </div>
+
+			    <label class="ck_checkbox" style="display:none;">
+			      <input class="optIn ck_course_opted" name="course_opted" type="checkbox" id="optIn" checked="">
+			      <span class="ck_opt_in_prompt">I'd like to receive the free email course.</span>
+			    </label>
+
+			  <button style="padding:13px; border: 1px solid #fff;" class="subscribe_button ck_subscribe_button btn fields" id="ck_subscribe_button">
+			    Enroll Now
+			  </button>
+
+			</form>
+				<button style="opacity: 0.4; padding:13px; border: 1px solid #fff; background-color: #cecece;" class="subscribe_button ck_subscribe_button btn fields" onclick="document.getElementById(&#39;banner-course-message&#39;).style.display=&#39;none&#39;;">X</button>
+
+		</div>
+	</div>
+</div>
+</div>
+
+<!-- Header Widget Area -->
+<!--<div id = "learn-options-list" style="background-color: #F2F2F2;">
+
+	<div class="wrap clearfix">
+	
+	<div id="header-area" class="widget-area" role="complementary">
+		<div class="header-widget">			<div class="textwidget"><a href = "http://www.joshmorony.com/contact/"><img src = "//www.joshmorony.com/wp-content/uploads/2016/11/advertise.png" alt = "" /></a></div>
+		</div><div class="header-widget">			<div class="textwidget"><a id = "phaserLink2" href = ""><img id = "phaserImg2" src = "" /></a>
+
+<script type = "text/javascript">
+var banner2 = Math.floor(Math.random()*(3)+1);
+var link = "https://gumroad.com/a/840840307/ySfMa";
+var img = "//www.joshmorony.com/wp-content/uploads/2015/10/interphase-small.png";
+var alt = "Interphase 1";
+
+if(banner2 == 1){
+	var phaserLink2 = document.getElementById('phaserLink2');
+	phaserLink2.href = "https://gumroad.com/a/840840307/ySfMa";
+
+	var phaserImg2 = document.getElementById('phaserImg2');
+	phaserImg2.src = "//www.joshmorony.com/wp-content/uploads/2015/10/interphase-small.png";
+	phaserImg2.alt = "Interphase 1";
+}
+else if (banner2 == 2){
+	var phaserLink2 = document.getElementById('phaserLink2');
+	phaserLink2.href = "https://gumroad.com/a/840840307/IpvG";
+
+	var phaserImg2 = document.getElementById('phaserImg2');
+	phaserImg2.src = "//www.joshmorony.com/wp-content/uploads/2015/10/box2d-small.png";
+	phaserImg2.alt = "Box 2D Plugin";
+}
+else if (banner2 == 3){
+	var phaserLink2 = document.getElementById('phaserLink2');
+	phaserLink2.href = "https://gumroad.com/a/840840307/qjrl";
+
+	var phaserImg2 = document.getElementById('phaserImg2');
+	phaserImg2.src = "//www.joshmorony.com/wp-content/uploads/2015/10/joystick-small.png";
+	phaserImg2.alt = "Virtual Joystick Plugin";
+}
+</script></div>
+		</div><div class="header-widget">			<div class="textwidget"><a href = "https://www.youtube.com/subscription_center?add_user=LittlejTFS"><img src = "//www.joshmorony.com/wp-content/uploads/2016/12/youtube-ad.png" alt = "Joshua Morony YouTube" /></a></div>
+		</div><div class="header-widget">			<div class="textwidget"><a href = "https://joshmorony.com/building-mobile-apps-with-ionic-2/?utm_source=homepage&utm_medium=banner&utm_campaign=header"><img src = "//www.joshmorony.com/wp-content/uploads/2016/11/bawi-ad-161116.png" alt = "Ionic 2" /></a></div>
+		</div>	</div>
+	
+
+	</div>
+</div>-->
+<!-- Header Widget Area -->
+
+
+		    <!-- Navigation -->
+		    <!--<nav role="navigation" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+				<div class="wrap clearfix">
+										
+					    <ul id="nav" class="header-menu"><li id="menu-item-537" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-537"><a href="https://www.joshmorony.com/blog/">Articles</a></li>
+<li id="menu-item-986" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-has-children menu-item-986"><a href="https://www.joshmorony.com/blog/">Tutorials</a>
+<ul class="sub-menu">
+	<li id="menu-item-898" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-898"><a href="https://www.joshmorony.com/category/sencha-touch-tutorials/">Sencha Touch Tutorials</a></li>
+	<li id="menu-item-1084" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1084"><a href="https://www.joshmorony.com/category/ionic-tutorials/">Ionic Tutorials</a></li>
+	<li id="menu-item-900" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-900"><a href="https://www.joshmorony.com/category/phonegap-tutorials/">PhoneGap Tutorials</a></li>
+	<li id="menu-item-902" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-902"><a href="https://www.joshmorony.com/category/phaser-tutorials/">Phaser Tutorials</a></li>
+	<li id="menu-item-901" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-901"><a href="https://www.joshmorony.com/category/famous-tutorials/">Famo.us Tutorials</a></li>
+</ul>
+</li>
+<li id="menu-item-987" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-987"><a href="https://www.joshmorony.com/games/">Games</a></li>
+<li id="menu-item-903" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-903"><a href="https://www.joshmorony.com/services/">Services</a></li>
+<li id="menu-item-721" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-721"><a href="http://www.joshmorony.com/#books">Books</a></li>
+<li id="menu-item-25" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-25"><a href="https://www.joshmorony.com/about-me/">About Me</a></li>
+<li id="menu-item-24" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24"><a href="https://www.joshmorony.com/contact/">Contact</a></li>
+</ul>					
+									</div>
+			</nav>-->
+
+		</header>
+<div class="wrap-full-single">
+
+
+<!-- Logic Hop -->
+
+<div style="display: none;" class="logichop-js" data-cid="6631" data-event="show" data-not="false" data-css-add="" data-css-remove="">
+	<div style="opacity: 0.7; margin-top: 30px; margin-bottom: 0px; padding: 20px; font-size: 0.8em; text-align: center; background-color: #f9f5ce; border: 1px solid #eeeab8;">
+		<em>
+		<strong>Hey <span class="logichop-js" data-var="ConvertKit.first_name" data-event="show"></span>, welcome back!</strong> It looks like you've downloaded the preview of <a style="text-decoration:underline; color:#2d72d9;" href="https://www.joshmorony.com/building-mobile-apps-with-ionic-2/?utm_source=logichop&amp;utm_campaign=previewed&amp;utm_medium=post#buy">Building Mobile Apps with Ionic 2</a> but haven't got a copy of the full version yet. That's totally fine, but if you do want to grab a copy you can get it <a style="text-decoration:underline; color:#2d72d9;" href="https://www.joshmorony.com/building-mobile-apps-with-ionic-2/?utm_source=logichop&amp;utm_campaign=previewed&amp;utm_medium=post#buy">here</a> or <a style="text-decoration:underline; color:#2d72d9;" href="http://www.joshmorony.com/contact/">contact me</a> if you have any questions.
+		</em>
+	</div>
+</div>
+
+<div style="" class="logichop-js" data-cid="6635" data-event="show" data-not="false" data-css-add="" data-css-remove="">
+	<div style="opacity: 0.7; margin-top: 30px; margin-bottom: 0px; padding: 20px; font-size: 0.8em; text-align: center; background-color: #f9f5ce; border: 1px solid #eeeab8;">
+		<em>
+		<strong>Hey <span class="logichop-js" data-var="ConvertKit.first_name" data-event="show"></span>, welcome back!</strong> Did you know that I offer a <strong>free 7 day email course</strong> for getting started with Ionic 2? If you want to sign up, just visit <a style="text-decoration:underline; color:#2d72d9;" href="http://www.joshmorony.com/learn-ionic-2/">this page</a>
+		</em>
+	</div>
+</div>
+
+<div class="logichop-js" data-cid="6877" style="display: none;" data-event="show">
+
+	<div style="opacity: 0.7; margin-top: 30px; margin-bottom: 0px; padding: 20px; font-size: 0.8em; text-align: center; background-color: #f9f5ce; border: 1px solid #eeeab8;">
+		<em>
+
+<strong>Hey <span class="logichop-js" data-var="ConvertKit.first_name" data-event="show"></span></strong>, did you enjoy <strong>Building Mobile Apps with Ionic 2?</strong> If you did and want more, you can easily upgrade to the <a style="text-decoration:underline; color:#2d72d9;" href="https://www.joshmorony.com/building-mobile-apps-with-ionic-2/?utm_source=logichop&amp;utm_campaign=upgrade&amp;utm_medium=post#buy">EXPERT Package</a>. Just <a style="text-decoration:underline; color:#2d72d9;" href="https://www.joshmorony.com/contact/">let me know</a> and I'll organise it all for you.
+
+		</em>
+	</div>
+
+</div>
+
+<!-- Logic Hop -->
+
+
+	<main id="content" role="main" itemprop="mainContentOfPage" itemscope="itemscope" itemtype="http://schema.org/Blog" class="full-width-post">
+
+		
+
+			<!-- Article -->
+			<article id="post-5455" class="clearfix post-5455 post type-post status-publish format-standard has-post-thumbnail hentry category-phaser-tutorials tag-games tag-phaser" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+					<header class="entry-header" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+
+			
+		<div class="category-name" style="color: #e98b39 !important;">
+			<a href="https://www.joshmorony.com/category/phaser-tutorials/" rel="category tag">Phaser Tutorials</a>		</div>
+
+		
+							<div class="entry-image">
+					<img width="200" height="200" src="./Main.js_files/es6-phaser-200x200.png" class="attachment-s size-s wp-post-image" alt="ES6 Phaser" srcset="https://www.joshmorony.com/wp-content/uploads/2016/04/es6-phaser-200x200.png 200w, https://www.joshmorony.com/wp-content/uploads/2016/04/es6-phaser-150x150.png 150w, https://www.joshmorony.com/wp-content/uploads/2016/04/es6-phaser-300x300.png 300w, https://www.joshmorony.com/wp-content/uploads/2016/04/es6-phaser.png 500w" sizes="(max-width: 200px) 100vw, 200px">				</div>
+			
+			<h1 class="entry-title" itemprop="headline">Level up Your Phaser Games with ES6</h1>
+
+		
+		<p class="entry-meta">
+
+</p><div class="post-tag-container">
+<a href="https://www.joshmorony.com/tag/games/"><span class="post-tag">games</span></a> <a href="https://www.joshmorony.com/tag/phaser/"><span class="post-tag">phaser</span></a> </div>
+
+<iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-follow-button twitter-follow-button-rendered" title="Twitter Follow Button" src="./Main.js_files/follow_button.4ca9f1d9cb5a373a2f7d0969f5b40084.en.html" style="position: static; visibility: visible; width: 277px; height: 28px;" data-screen-name="joshuamorony"></iframe>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<br>
+<script src="./Main.js_files/platform.js" gapi_processed="true"></script>
+<div id="___ytsubscribe_0" style="text-indent: 0px; margin: 0px; padding: 0px; background: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 111px; height: 24px;"><iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 111px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 24px;" tabindex="0" vspace="0" width="100%" id="I0_1492701015760" name="I0_1492701015760" src="./Main.js_files/subscribe_embed.html" data-gapiattached="true"></iframe></div>
+<br>
+
+			<span class="entry-author vcard" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><a href="https://www.joshmorony.com/author/joshuamorony/" itemprop="url" rel="author">Josh Morony</a></span>
+			·
+			<meta itemprop="datePublished" content="2016-04-19T11:45:04+00:00">
+			<time class="entry-time" itemprop="dateModified" datetime="2017-04-04T20:25:32+00:00">April 4, 2017</time>
+
+		<p></p>
+
+		</header>
+
+		<div class="entry-content" itemprop="text">
+							<script>AmpedSense.OptimizeAdSpot('AP'); AmpedSense.OptimizeAdSpot('IL'); AmpedSense.OptimizeAdSpot('IR');</script><div style="float:right; padding: 0px 0px 10px 10px; "><script type="text/javascript">google_ad_client = 'pub-6687906629460201';google_ad_width = 300;google_ad_height = 250;google_ad_format = '300x250_as';google_ad_type = 'text_image';google_ad_channel = '4637521974'; </script><script type="text/javascript" src="https://pagead2.googlesyndication.com/pagead/show_ads.js"></script></div><p>Since starting with Ionic 2 I’ve fallen in love with <a href="http://www.joshmorony.com/intro-to-ecmascript-6-and-angular-2-for-ionic-developers/">ECMAScript 6</a> (ES6), and once I started working with Phaser again it just didn’t feel as nice working with ES5. In this tutorial I am going to show you how you can use ES6 in your own Phaser games, but first let’s talk a little bit about what ES6 even is.</p><script>AmpedSense.OptimizeAdSpot('PL'); AmpedSense.OptimizeAdSpot('PC'); AmpedSense.OptimizeAdSpot('PR');</script>
+<h2>A Little About ECMAScript 6 (ES6)</h2>
+<p>I won’t spend too long talking about this since I <a href="http://www.joshmorony.com/intro-to-ecmascript-6-and-angular-2-for-ionic-developers/">have already covered it in the past</a>, but ES6 is essentially the next iteration of JavaScript. It is a specification (which is yet to be implemented by browsers) that adds some new features to the JavaScript you’re probably used to.</p>
+<p>There’s quite a few useful things that have been added, but the most important things that will make a big impact on our Phaser games are <strong>classes</strong>:</p>
+<div><div id="highlighter_746960" class="syntaxhighlighter nogutter  jscript"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="jscript keyword">class</code> <code class="jscript plain">Shape {</code></div><div class="line number2 index1 alt1"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript plain">constructor (id, x, y) {</code></div><div class="line number3 index2 alt2"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript keyword">this</code><code class="jscript plain">.id = id</code></div><div class="line number4 index3 alt1"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript keyword">this</code><code class="jscript plain">.move(x, y)</code></div><div class="line number5 index4 alt2"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript plain">}</code></div><div class="line number6 index5 alt1"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript plain">move (x, y) {</code></div><div class="line number7 index6 alt2"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript keyword">this</code><code class="jscript plain">.x = x</code></div><div class="line number8 index7 alt1"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript keyword">this</code><code class="jscript plain">.y = y</code></div><div class="line number9 index8 alt2"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript plain">}</code></div><div class="line number10 index9 alt1"><code class="jscript plain">}</code></div></div></td></tr></tbody></table></div></div>
+<p>and <strong>modules</strong>:</p>
+<div><div id="highlighter_704813" class="syntaxhighlighter nogutter  jscript"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="jscript comments">//&nbsp; lib/math.js</code></div><div class="line number2 index1 alt1"><code class="jscript keyword">export</code> <code class="jscript keyword">function</code> <code class="jscript plain">sum (x, y) { </code><code class="jscript keyword">return</code> <code class="jscript plain">x + y }</code></div><div class="line number3 index2 alt2"><code class="jscript keyword">export</code> <code class="jscript keyword">var</code> <code class="jscript plain">pi = 3.141593</code></div><div class="line number4 index3 alt1">&nbsp;</div><div class="line number5 index4 alt2"><code class="jscript comments">//&nbsp; someApp.js</code></div><div class="line number6 index5 alt1"><code class="jscript keyword">import</code> <code class="jscript plain">* as math from </code><code class="jscript string">"lib/math"</code></div><div class="line number7 index6 alt2"><code class="jscript plain">console.log(</code><code class="jscript string">"2π = "</code> <code class="jscript plain">+ math.sum(math.pi, math.pi))</code></div><div class="line number8 index7 alt1">&nbsp;</div><div class="line number9 index8 alt2"><code class="jscript comments">//&nbsp; otherApp.js</code></div><div class="line number10 index9 alt1"><code class="jscript keyword">import</code> <code class="jscript plain">{ sum, pi } from </code><code class="jscript string">"lib/math"</code></div><div class="line number11 index10 alt2"><code class="jscript plain">console.log(</code><code class="jscript string">"2π = "</code> <code class="jscript plain">+ sum(pi, pi))</code></div></div></td></tr></tbody></table></div></div>
+<p>These two features lend themselves well to creating well structured, modular projects. We can create classes that handle one specific feature, and import them wherever we want to use it. That isn’t to say that we couldn’t take a similar modular approach with ES5, but these new features make it a lot easier and cleaner.</p>
+<p>We are going to talk through these features a bit more in the post, but if you’d like a more detailed explanation of new ES6 features then I would recommend that you <a href="http://www.joshmorony.com/intro-to-ecmascript-6-and-angular-2-for-ionic-developers/">read this post</a>.</p>
+<p>Since it is not supported by browsers yet, we need to use some extra tools to transpile the ES6 code we write, into ES5 code that can be understood by browsers.</p>
+<h2>Using ES6 with Phaser Games</h2>
+<p>The journey to start using ES6 with my Phaser games didn’t take long because I came across <a href="https://github.com/belohlavek/phaser-es6-boilerplate">this great boilerplate</a> created by <a href="https://github.com/belohlavek">Daniel Belohlavek</a>. Out of the box it has everything set up that you need to transpile and run ES6 code with Phaser, and it also allows you to:</p>
+<ul>
+<li>Run a development build with a single command</li>
+<li>Run a production build with a single command</li>
+<li>Live reload with Browsersync </li>
+<li>Minified production code </li>
+</ul>
+<p>As soon as you make a code change and save it, your game will automatically refresh to show those changes. Best of all, since we’re using Node you don’t have to worry about setting up an XAMPP web server or anything like that to run your game locally.</p>
+<p>I have forked this repository to create a new template that has some more boilerplate code which more closely reflects the template I have been using and giving out in the past, and it also includes a few examples.</p><script>AmpedSense.OptimizeAdSpot('1L'); AmpedSense.OptimizeAdSpot('1C'); AmpedSense.OptimizeAdSpot('1R');</script>
+<p>Daniel has done an amazing job with the template though, I’ve just added a few bells and whistles, so kudos to him for that.</p>
+<h2>Installation</h2>
+<p>Before getting started you must have both <a href="https://git-scm.com/downloads">Git</a> and <a href="https://nodejs.org/en/download/">Node</a> installed on your machine, so make sure to take care of that first.</p>
+<p>To start a new project using the ES6 template, you can simply clone the template into a new folder using the following command:</p>
+<p><code>git clone https://github.com/joshuamorony/phaser-es6-boilerplate my-game-name</code></p>
+<p>You will then need to install all of the dependencies, so you should run:</p>
+<p><code>cd my-game-name</code></p>
+<p>and then run:</p>
+<p><code>npm install</code></p>
+<p>Once that has finished running your project is ready to use. Now all you have to do is run:</p>
+<p><code>npm start</code></p><script>AmpedSense.OptimizeAdSpot('2L'); AmpedSense.OptimizeAdSpot('2C'); AmpedSense.OptimizeAdSpot('2R');</script><div style="width:100%; text-align:center; padding: 10px; "><a href="https://joshmorony.com/building-mobile-apps-with-ionic-2/?utm_source=homepage&amp;utm_medium=banner&amp;utm_campaign=incontent170417"><img src="./Main.js_files/ionic3ad.png" alt="Ionic eBook" style="width: 70%;"></a></div><div class="wpInsert wpInsertInPostAd wpInsertMiddle" style="margin: 20px 0; text-align: center;" vlgri54="" hidden=""><iframe id="twitter-widget-1" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-follow-button twitter-follow-button-rendered" title="Twitter Follow Button" src="./Main.js_files/follow_button.4ca9f1d9cb5a373a2f7d0969f5b40084.en(1).html" style="position: static; visibility: visible; width: 277px; height: 28px;" data-screen-name="joshuamorony"></iframe>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<script src="./Main.js_files/platform.js" gapi_processed="true"></script>
+<div id="___ytsubscribe_1" style="text-indent: 0px; margin: 0px; padding: 0px; background: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 111px; height: 24px;"><iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 111px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 24px;" tabindex="0" vspace="0" width="100%" id="I0_1492701016359" name="I0_1492701016359" src="./Main.js_files/subscribe_embed(1).html" data-gapiattached="true"></iframe></div></div>
+<p>to set up the server and live reloading, and you can view your game by going to:</p>
+<p><code>http://localhost:3000</code></p>
+<p>in your browser. You can also run a minified production build with the following command:</p>
+<p><code>npm run production</code></p>
+<p>Now that we’ve got everything up and running, let’s talk through how we can use it.</p>
+<h2>Structure</h2>
+<p>The structure of this project is quite a bit different to what you may be used to if you’ve been using ES5. In the template I’ve been giving out on this blog for my tutorials there are 5 different states:</p>
+<ul>
+<li>Boot</li>
+<li>Preload</li>
+<li>GameTitle</li>
+<li>Main</li>
+<li>GameOver</li>
+</ul>
+<p>and I’ve added these into the ES6 template as well, it just looks a little different, so let’s talk through that a bit.</p>
+<p>You will find the source code for the application (where you will be making edits) in the <strong>src</strong> folder. This is split up into <strong>objects</strong> and <strong>states</strong>. All the states for your game (like the ones listed above) will go into the states folder, and you can use the objects folder to store any services the game might be using (I’ve created a Weather object and a DayCycle object for example).</p>
+<p>You may also notice that there is a <strong>static</strong> folder. This is where your “static” content like images, JSON files, css files etc. would go and where you can modify the <strong>index.html</strong> file if necessary.</p><script>AmpedSense.OptimizeAdSpot('3L'); AmpedSense.OptimizeAdSpot('3C'); AmpedSense.OptimizeAdSpot('3R');</script>
+<p>The build process that is configured in the template will combine all of the code in your <strong>src* folder into a single **game.js</strong> file, and it will copy that along with your static assets to the <strong>build</strong> folder. You should never modify this build folder, it is just where the “compiled” version of your game will live after being built. Any changes you make here would be overwritten by new builds.</p>
+<h2>Code</h2>
+<p>As well as the structural differences, the code itself also looks a little bit different. Let’s take a look at one of the <strong>states</strong> as an example:</p>
+<div><div id="highlighter_292721" class="syntaxhighlighter nogutter  jscript"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="jscript keyword">import</code> <code class="jscript plain">ExampleObject from </code><code class="jscript string">'objects/ExampleObject'</code><code class="jscript plain">;</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="jscript keyword">class</code> <code class="jscript plain">Main </code><code class="jscript keyword">extends</code> <code class="jscript plain">Phaser.State {</code></div><div class="line number4 index3 alt1">&nbsp;</div><div class="line number5 index4 alt2"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript plain">create() {</code></div><div class="line number6 index5 alt1">&nbsp;</div><div class="line number7 index6 alt2"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript comments">//Enable Arcade Physics</code></div><div class="line number8 index7 alt1"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript keyword">this</code><code class="jscript plain">.game.physics.startSystem(Phaser.Physics.ARCADE);</code></div><div class="line number9 index8 alt2">&nbsp;</div><div class="line number10 index9 alt1"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript comments">//Set the games background colour</code></div><div class="line number11 index10 alt2"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript keyword">this</code><code class="jscript plain">.game.stage.backgroundColor = </code><code class="jscript string">'#cecece'</code><code class="jscript plain">;</code></div><div class="line number12 index11 alt1">&nbsp;</div><div class="line number13 index12 alt2"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript comments">//Example of including an object</code></div><div class="line number14 index13 alt1"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript comments">//let exampleObject = new ExampleObject(this.game);</code></div><div class="line number15 index14 alt2"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript plain">}</code></div><div class="line number16 index15 alt1">&nbsp;</div><div class="line number17 index16 alt2"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript plain">update() {</code></div><div class="line number18 index17 alt1"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code>&nbsp;</div><div class="line number19 index18 alt2"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript plain">}</code></div><div class="line number20 index19 alt1">&nbsp;</div><div class="line number21 index20 alt2"><code class="jscript plain">}</code></div><div class="line number22 index21 alt1">&nbsp;</div><div class="line number23 index22 alt2"><code class="jscript keyword">export</code> <code class="jscript keyword">default</code> <code class="jscript plain">Main;</code></div></div></td></tr></tbody></table></div></div>
+<p>This is the <strong>Main</strong> state and it should look pretty familiar. We are still using the <strong>create</strong> and <strong>update</strong> methods that are part of the Phaser game lifecycle, but the syntax is a bit different.</p>
+<p>Instead of using functions and prototypes to create a class like structure (since ES5 doesn’t provide classes), we are just using <em>actual</em> classes which <em>are</em> available in ES6.</p>
+<p>The most confusing thing here might be the <strong>import</strong> and <strong>export</strong> keywords. In ES6, by <strong>exporting</strong> something we make it available to <strong>import</strong> somewhere else. So at the top of this file we are <strong>importing</strong> the <strong>ExampleObject</strong> class from the <strong>objects</strong> folder. If we take a look at that class:</p>
+<div><div id="highlighter_574437" class="syntaxhighlighter nogutter  jscript"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="jscript keyword">class</code> <code class="jscript plain">ExampleObject {</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript plain">constructor(game){</code></div><div class="line number4 index3 alt1"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript comments">//Do something</code></div><div class="line number5 index4 alt2"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript plain">}</code></div><div class="line number6 index5 alt1">&nbsp;</div><div class="line number7 index6 alt2"><code class="jscript plain">}</code></div><div class="line number8 index7 alt1">&nbsp;</div><div class="line number9 index8 alt2"><code class="jscript keyword">export</code> <code class="jscript keyword">default</code> <code class="jscript plain">ExampleObject;</code></div></div></td></tr></tbody></table></div></div>
+<p>You will see that we <strong>export</strong> it. If we did not export <strong>ExampleObject</strong> here, then it would not be available to import into our Main state. Similarly, if you look at the <strong>index.js</strong> file:</p>
+<div><div id="highlighter_739827" class="syntaxhighlighter nogutter  jscript"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="jscript keyword">import</code> <code class="jscript plain">Boot from </code><code class="jscript string">'states/Boot'</code><code class="jscript plain">;</code></div><div class="line number2 index1 alt1"><code class="jscript keyword">import</code> <code class="jscript plain">Preload from </code><code class="jscript string">'states/Preload'</code><code class="jscript plain">;</code></div><div class="line number3 index2 alt2"><code class="jscript keyword">import</code> <code class="jscript plain">GameTitle from </code><code class="jscript string">'states/GameTitle'</code><code class="jscript plain">;</code></div><div class="line number4 index3 alt1"><code class="jscript keyword">import</code> <code class="jscript plain">Main from </code><code class="jscript string">'states/Main'</code><code class="jscript plain">;</code></div><div class="line number5 index4 alt2"><code class="jscript keyword">import</code> <code class="jscript plain">GameOver from </code><code class="jscript string">'states/GameOver'</code><code class="jscript plain">;</code></div><div class="line number6 index5 alt1">&nbsp;</div><div class="line number7 index6 alt2"><code class="jscript keyword">class</code> <code class="jscript plain">Game </code><code class="jscript keyword">extends</code> <code class="jscript plain">Phaser.Game {</code></div><div class="line number8 index7 alt1">&nbsp;</div><div class="line number9 index8 alt2"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript plain">constructor() {</code></div><div class="line number10 index9 alt1">&nbsp;</div><div class="line number11 index10 alt2"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript keyword">super</code><code class="jscript plain">(window.innerWidth * window.devicePixelRatio, window.innerHeight * window.devicePixelRatio, Phaser.AUTO);</code></div><div class="line number12 index11 alt1">&nbsp;</div><div class="line number13 index12 alt2"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript keyword">this</code><code class="jscript plain">.state.add(</code><code class="jscript string">'Boot'</code><code class="jscript plain">, Boot, </code><code class="jscript keyword">false</code><code class="jscript plain">);</code></div><div class="line number14 index13 alt1"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript keyword">this</code><code class="jscript plain">.state.add(</code><code class="jscript string">'Preload'</code><code class="jscript plain">, Preload, </code><code class="jscript keyword">false</code><code class="jscript plain">);</code></div><div class="line number15 index14 alt2"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript keyword">this</code><code class="jscript plain">.state.add(</code><code class="jscript string">'GameTitle'</code><code class="jscript plain">, GameTitle, </code><code class="jscript keyword">false</code><code class="jscript plain">);</code></div><div class="line number16 index15 alt1"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript keyword">this</code><code class="jscript plain">.state.add(</code><code class="jscript string">'Main'</code><code class="jscript plain">, Main, </code><code class="jscript keyword">false</code><code class="jscript plain">);</code></div><div class="line number17 index16 alt2"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript keyword">this</code><code class="jscript plain">.state.add(</code><code class="jscript string">'GameOver'</code><code class="jscript plain">, GameOver, </code><code class="jscript keyword">false</code><code class="jscript plain">);</code></div><div class="line number18 index17 alt1">&nbsp;</div><div class="line number19 index18 alt2"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript keyword">this</code><code class="jscript plain">.state.start(</code><code class="jscript string">'Boot'</code><code class="jscript plain">);</code></div><div class="line number20 index19 alt1"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript plain">}</code></div><div class="line number21 index20 alt2">&nbsp;</div><div class="line number22 index21 alt1"><code class="jscript plain">}</code></div><div class="line number23 index22 alt2">&nbsp;</div><div class="line number24 index23 alt1"><code class="jscript keyword">new</code> <code class="jscript plain">Game();</code></div></div></td></tr></tbody></table></div></div>
+<p>You will see that we are importing the Main state that we created here (as well as all the others), and we are then using those imports in the <code>this.state.add()</code> function.</p>
+<h2>Summary</h2>
+<p>It might feel a little bit funky at first, but if you’re already familiar with Phaser it should be reasonably easy to get started with ES6. Once you do get the hang of it, I’ll bet that you never want to go back to ES5 again.</p>
+<p>I’ll be releasing some more tutorials based on this template in the near future so keep a look out for those!</p>
+<div class="crp_related "><h3>What to read next...</h3><ul><li><a href="http://www.joshmorony.com/creating-role-based-authentication-with-passport-in-ionic-2-part-2/"><div class="crp_title">Creating Role Based Authentication with Passport in Ionic 2…</div></a></li><li><a href="http://www.joshmorony.com/building-a-crud-ionic-2-application-with-firebase-angularfire/"><div class="crp_title">Building a CRUD Ionic 2 Application with Firebase &amp;…</div></a></li><li><a href="http://www.joshmorony.com/creating-role-based-authentication-with-passport-in-ionic-2-part-1/"><div class="crp_title">Creating Role Based Authentication with Passport in Ionic 2…</div></a></li><li><a href="http://www.joshmorony.com/create-a-sliding-item-animation-with-a-directive-in-ionic-2/"><div class="crp_title">Create a Sliding Item Animation with a Directive in Ionic 2</div></a></li></ul><div class="crp_clear"></div></div><div class="wpInsert wpInsertInPostAd wpInsertBelow" style="max-width: 500px;" vlgri54="" hidden=""><h3>What to watch next...</h3>
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 25px; height: 0;">
+<iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" width="560" height="315" src="./Main.js_files/embed.html" frameborder="0" allowfullscreen=""></iframe>
+</div></div><script>AmpedSense.OptimizeAdSpot('BP')</script>					</div>
+
+	
+		
+	<footer class="entry-footer">
+		<p class="entry-meta">
+			<span>Posted in: </span>
+							<br>
+				<span>Tagged with: <a href="https://www.joshmorony.com/tag/games/" rel="tag">games</a>, <a href="https://www.joshmorony.com/tag/phaser/" rel="tag">phaser</a></span>
+					</p>
+	</footer>
+
+				</article>
+
+
+			<!-- Author -->
+			
+
+			<!-- Comments -->
+			
+<div id="disqus_thread"><iframe id="dsq-app1" name="dsq-app1" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" width="100%" src="./Main.js_files/saved_resource.html" style="width: 1px !important; min-width: 100% !important; border: none !important; overflow: hidden !important; height: 737px !important;" horizontalscrolling="no" verticalscrolling="no"></iframe></div>
+
+
+
+			
+	</main>
+
+	<!--Sidebar-->
+	<aside id="sidebar" role="complementary" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
+	</aside>
+</div>
+			
+	<footer id="footer" role="contentinfo" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
+		<div class="wrap clearfix">
+
+		    <!-- Links -->
+		    <nav role="navigation" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+			    
+				    <ul id="footer-links" class="footer-menu"><li id="menu-item-703" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-703"><a href="https://www.joshmorony.com/privacy-policy/">Privacy Policy</a></li>
+<li id="menu-item-704" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-704"><a href="https://www.joshmorony.com/contact/">Contact</a></li>
+</ul>
+			    			</nav>
+
+		    <!-- Copyright -->
+			<p class="copyright">
+
+							© Joshua Morony 2017<br>
+			
+			</p>
+
+
+		</div>
+	</footer>
+
+			<iframe name="oauth2relay576899997" id="oauth2relay576899997" src="./Main.js_files/postmessageRelay.html" tabindex="-1" aria-hidden="true" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe><script type="text/javascript">
+			  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-43860681-1', 'auto');
+  ga('send', 'pageview');		</script>
+	
+		<div style="display:none">
+	</div>
+<script type="text/javascript" src="./Main.js_files/shCore.js"></script>
+<script type="text/javascript" src="./Main.js_files/shBrushJScript.js"></script>
+<script type="text/javascript">
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "https://www.joshmorony.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.9b";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "https://www.joshmorony.com/wp-content/plugins/syntaxhighlighter-evolved-themes/themes/solarized-dark.css?ver=3.0.9b";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['gutter'] = false;
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+<script type="text/javascript" async="async" data-cfasync="true" src="./Main.js_files/devicepx-jetpack.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var qpprFrontData = {"linkData":{"https:\/\/www.joshmorony.com\/how-to-add-a-facebook-style-sliding-menu-in-sencha-touch\/":[0,0,""]},"siteURL":"https:\/\/www.joshmorony.com","siteURLq":"https:\/\/www.joshmorony.com"};
+/* ]]> */
+</script>
+<script type="text/javascript" async="async" data-cfasync="true" src="./Main.js_files/qppr_frontend_script.min.js"></script>
+<script type="text/javascript" async="async" data-cfasync="true" src="./Main.js_files/gprofiles.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type="text/javascript" async="async" data-cfasync="true" src="./Main.js_files/wpgroho.js"></script>
+<script type="text/javascript" async="async" data-cfasync="true" src="./Main.js_files/jquery.custom.js"></script>
+<script type="text/javascript" async="async" data-cfasync="true" src="./Main.js_files/comment-reply.min.js"></script>
+<script type="text/javascript" async="async" data-cfasync="true" src="./Main.js_files/wp-embed.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var embedVars = {"disqusConfig":{"platform":"wordpress@4.7.3","language":""},"disqusIdentifier":"5455 http:\/\/www.joshmorony.com\/?p=5455","disqusShortname":"joshmorony","disqusTitle":"Level up Your Phaser Games with ES6","disqusUrl":"https:\/\/www.joshmorony.com\/level-up-your-phaser-games-with-es6\/","options":{"manualSync":false},"postId":"5455"};
+/* ]]> */
+</script>
+<script type="text/javascript" async="async" data-cfasync="true" src="./Main.js_files/disqus.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var countVars = {"disqusShortname":"joshmorony"};
+/* ]]> */
+</script>
+<script type="text/javascript" async="async" data-cfasync="true" src="./Main.js_files/count(1).js"></script>
+<script type="text/javascript" src="https://stats.wp.com/e-201716.js" async="" defer=""></script>
+<script type="text/javascript">
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:4.8.2',blog:'94490444',post:'5455',tz:'10.5',srv:'www.joshmorony.com'} ]);
+	_stq.push([ 'clickTrackerInit', '94490444', '5455' ]);
+</script>
+		<div>
+
+
+<style type="text/css">/* Layout */
+  .ck_form {
+  /* divider image */
+	background: #fff url(data:image/gif;base64,R0lGODlhAQADAIABAMzMzP///yH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS41LWMwMTQgNzkuMTUxNDgxLCAyMDEzLzAzLzEzLTEyOjA5OjE1ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MUQ5NjM5RjgxQUVEMTFFNEJBQTdGNTQwMjc5MTZDOTciIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MUQ5NjM5RjkxQUVEMTFFNEJBQTdGNTQwMjc5MTZDOTciPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoxRDk2MzlGNjFBRUQxMUU0QkFBN0Y1NDAyNzkxNkM5NyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoxRDk2MzlGNzFBRUQxMUU0QkFBN0Y1NDAyNzkxNkM5NyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PgH//v38+/r5+Pf29fTz8vHw7+7t7Ovq6ejn5uXk4+Lh4N/e3dzb2tnY19bV1NPS0dDPzs3My8rJyMfGxcTDwsHAv769vLu6ubi3trW0s7KxsK+urayrqqmop6alpKOioaCfnp2cm5qZmJeWlZSTkpGQj46NjIuKiYiHhoWEg4KBgH9+fXx7enl4d3Z1dHNycXBvbm1sa2ppaGdmZWRjYmFgX15dXFtaWVhXVlVUU1JRUE9OTUxLSklIR0ZFRENCQUA/Pj08Ozo5ODc2NTQzMjEwLy4tLCsqKSgnJiUkIyIhIB8eHRwbGhkYFxYVFBMSERAPDg0MCwoJCAcGBQQDAgEAACH5BAEAAAEALAAAAAABAAMAAAICRFIAOw==) repeat-y center top;
+	font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+	line-height: 1.5em;
+	overflow: hidden;
+	color: #666;
+	font-size: 16px;
+	border-top: solid 20px #3071b0;
+  border-top-color: #3071b0;
+	border-bottom: solid 10px #3d3d3d;
+  border-bottom-color: #1d446a;
+	-webkit-box-shadow: 0px 0px 5px rgba(0,0,0,.3);
+	-moz-box-shadow: 0px 0px 5px rgba(0,0,0,.3);
+	box-shadow: 0px 0px 5px rgba(0,0,0,.3);
+	clear: both;
+	margin: 20px 0px;
+}
+
+.ck_form, .ck_form * {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+#ck_subscribe_form {
+  clear: both;
+}
+
+/* Element Queries — uses JS */
+
+.ck_form_content, .ck_form_fields {
+	width: 50%;
+	float: left;
+	padding: 5%;
+}
+
+.ck_form.ck_horizontal {
+}
+
+.ck_form_content {
+	border-bottom: none;
+}
+
+.ck_form.ck_vertical {
+	background: #fff;
+}
+
+.ck_vertical .ck_form_content, .ck_vertical .ck_form_fields {
+	padding: 10%;
+	width: 100%;
+	float: none;
+}
+
+.ck_vertical .ck_form_content {
+	border-bottom: 1px dotted #aaa;
+	overflow: hidden;
+}
+
+/* Trigger the vertical layout with media queries as well */
+
+@media all and (max-width: 499px) {
+
+	.ck_form {
+		background: #fff;
+	}
+
+	.ck_form_content, .ck_form_fields {
+		padding: 10%;
+		width: 100%;
+		float: none;
+	}
+
+	.ck_form_content {
+		border-bottom: 1px dotted #aaa;
+	}
+
+}
+
+/* Content */
+
+.ck_form_content h3 {
+	margin: 0px 0px 15px;
+	font-size: 24px;
+	padding: 0px;
+}
+
+
+.ck_form_content p {
+	font-size: 14px;
+}
+
+.ck_image {
+	float: left;
+	margin-right: 5px;
+}
+
+/* Form fields */
+
+.ck_errorArea {
+	display: none;
+}
+
+#ck_success_msg {
+	padding: 10px 10px 0px;
+	border: solid 1px #ddd;
+	background: #eee;
+}
+
+.ck_label {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.ck_form input[type="text"], .ck_form input[type="email"] {
+	font-size: 14px;
+	padding: 10px 8px;
+	width: 100%;
+	border: 1px solid #d6d6d6; /* stroke */
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px; /* border radius */
+	background-color: #f8f7f7; /* layer fill content */
+	margin-bottom: 5px;
+	height: auto;
+}
+
+.ck_form input[type="text"]:focus, .ck_form input[type="email"]:focus {
+	outline: none;
+	border-color: #aaa;
+}
+
+.ck_checkbox {
+  padding: 10px 0px 10px 20px;
+  display: block;
+  clear: both;
+}
+
+.ck_checkbox input.optIn {
+  margin-left: -20px;
+  margin-top: 0;
+}
+.ck_form .ck_opt_in_prompt {
+  margin-left: 4px;
+}
+.ck_form .ck_opt_in_prompt p {
+  display: inline;
+}
+
+.ck_form .ck_subscribe_button {
+    width: 100%;
+    color: #fff;
+    margin: 10px 0px 0px;
+    padding:  10px 0px;
+    font-size: 18px;
+    background: #0d6db8;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px; /* border radius */
+    cursor: pointer;
+    border: none;
+    text-shadow: none;
+  }
+
+
+.ck_form .ck_guarantee {
+	color: #626262;
+	font-size: 12px;
+	text-align: center;
+	padding: 5px 0px;
+	display: block;
+}
+
+.ck_form .ck_powered_by {
+	display: block;
+	color: #aaa;
+}
+
+.ck_form .ck_powered_by:hover {
+	display: block;
+	color: #444;
+}
+
+.ck_converted_content {
+  display: none;
+	padding: 5%;
+	background: #fff;
+}
+
+
+/* v6 */
+
+.ck_form_v6 #ck_success_msg {
+	padding: 0px 10px;
+}
+
+@media all and (max-width: 403px) {
+  .ck_form_v6.ck_modal .ck_close_link {
+    top: 30px;
+  }
+}
+
+@media all and (min-width: 404px) and (max-width: 499px) {
+  .ck_form_v6.ck_modal .ck_close_link {
+    top: 57px;
+  }
+}
+
+
+.ck_form_container.ck_modal {
+	position: fixed;
+	z-index: 1000;
+	display: none;
+	top: 100px;
+}
+
+.ck_form_container.ck_modal .ck_form {
+	margin: 0px;
+}
+
+.ck_close_link {
+	position: absolute;
+	top: -5px;
+	right: -5px;
+	width: 30px;
+	height: 30px;
+	background:#fff;
+	color: #777;
+	-webkit-border-radius: 15x;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	-webkit-box-shadow: 0px 0px 3px rgba(0,0,0,.2);
+	-moz-box-shadow: 0px 0px 3px rgba(0,0,0,.2);
+	box-shadow: 0px 0px 3px rgba(0,0,0,.2);
+	text-align: center;
+	line-height: 30px;
+	cursor: pointer;
+}
+
+.ck_form_container.ck_modal {
+	width: 350px;
+}
+
+.ck_form_container.ck_modal .ck_vertical .ck_form_content, .ck_vertical .ck_form_fields {
+	padding-top: 3%;
+	padding-bottom: 3%;
+}
+
+#ck_overlay {
+    position: fixed;
+    z-index:1000;
+    top: 0px;
+    left: 0px;
+    height:100%;
+    width:100%;
+    background: #000;
+    display: none;
+}
+
+.form-container {
+	height: 650px;
+	width: 360px;
+}
+
+.optinbuttons {
+	list-style: none;
+	overflow: hidden;
+	padding: 40px 50px;
+	border-bottom: 1px solid #ddd;
+	margin: 0px 0px 40px;
+}
+
+@media screen and ( max-height: 900px ){
+
+	.ck_modal { top: 10px !important; }
+
+}
+
+@media screen and ( max-height: 600px ){
+
+    .ck_modal {
+			overflow: auto;
+			height: 100%;
+			position: fixed;
+			top: 0px !important;
+			left: 0px !important;
+			right: 0px !important;
+			bottom: 0px !important;
+			margin-left: 0px !important;
+			width: 100% !important;
+		}
+
+		.ck_modal .ck_close_link {
+			top: 10px;
+			right: 10px;
+		}
+}
+
+
+
+.ck_modal.ck_form_v6 {
+  height: 100%;
+  left: 0;
+  overflow: auto;
+  top: 0 !important;
+  width: 100% !important;
+}
+
+.ck_modal.ck_form_v6 .ck_form {
+  left: 50%;
+  margin: 25px 0 25px -350px;
+  position: absolute;
+  width: 700px;
+}
+
+#ck_overlay {
+  z-index: 10000;
+}
+
+.ck_modal.ck_form_v6 .ck_close_link {
+  background: transparent;
+  border: 1px solid #eee;
+  border-radius: 30px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #ffffff;
+  font-size: 19px;
+  height: 40px;
+  line-height: 40px;
+  opacity: 0.6;
+  right: 10px;
+  top: 10px;
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
+  width: 40px;
+  z-index: 12000;
+}
+
+.ck_modal.ck_form_v6 .ck_close_link:hover {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: #000000;
+  opacity: 1;
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+
+.ck_modal_open {
+  overflow: hidden;
+}
+
+@media all and (max-width: 800px) {
+  .ck_modal.ck_form_v6 .ck_form {
+    margin-left: -180px;
+    width: 360px;
+  }
+}
+
+@media all and (min-width: 500px) {
+  .ck_modal.ck_form_v6 .ck_close_link {
+    position: fixed;
+  }
+}
+
+@media all and (max-width: 499px) {
+  .ck_modal.ck_form_v6 .ck_form {
+    left: 0;
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .ck_modal.ck_form_v6 .ck_close_link {
+    border: 0;
+    color: #000000;
+    font-size: 18px;
+    height: 30px;
+    line-height: 30px;
+    right: 10px;
+    top: 35px;
+    width: 30px;
+  }
+}
+
+@media all and (max-width: 403px) {
+  .ck_modal.ck_form_v6 .ck_form {
+    margin: 0;
+  }
+
+  .ck_modal.ck_form_v6 .ck_close_link {
+    right: 5px;
+    top: 5px;
+  }
+}
+
+
+.ck_form_title {
+display: none !important;
+}
+
+.ck_modal {
+top: 75px !important;
+}
+
+
+
+
+</style>
+</div><script src="./Main.js_files/1706" id="_ck_1706"></script>
+	
+
+<!-- Performance optimized by W3 Total Cache. Learn more: https://www.w3-edge.com/products/
+
+ Served from: www.joshmorony.com @ 2017-04-21 01:40:14 by W3 Total Cache --><iframe style="display: none;" src="./Main.js_files/saved_resource(1).html"></iframe><div class="ck_form_container ck_modal ck_form_v6" id="ck_modal" data-ck-version="6" style="display: none; opacity: 1; z-index: 11000;">
+	
+<div class="ck_form ck_vertical_subscription_form ck_horizontal">
+  <div class="ck_form_content">
+    <h3 class="ck_form_title"></h3>
+    <div class="ck_description">
+      <span class="ck_image">
+        
+      </span>
+      <h1>Can I get your email address?<br></h1><p>I'll be 100% honest with you. I want your email address so I can send you free and useful content (usually once a week). I will <em>very</em> occasionally send you emails about books and courses that I create. </p><p><br></p><p>To start off with, you will get access to <strong>all bonus content</strong> for the site.</p>
+    </div>
+  </div>
+
+  <div class="ck_form_fields">
+    <div id="ck_success_msg" style="display:none;">
+      <p>You're almost done! You still need to confirm your email address by clicking the link in an email I just sent you.</p>
+    </div>
+
+    <!--  Form starts here  -->
+    <form id="ck_subscribe_form" class="ck_subscribe_form" action="https://forms.convertkit.com/landing_pages/1706/subscribe" data-remote="true">
+      <input type="hidden" value="{&quot;embed_style&quot;:&quot;modal&quot;,&quot;embed_trigger&quot;:&quot;exit_intent&quot;,&quot;scroll_percentage&quot;:&quot;70&quot;,&quot;delay_seconds&quot;:&quot;10&quot;,&quot;display_position&quot;:&quot;br&quot;,&quot;display_devices&quot;:&quot;desktop&quot;,&quot;days_no_show&quot;:&quot;15&quot;,&quot;converted_behavior&quot;:&quot;hide&quot;,&quot;form_style&quot;:&quot;full&quot;}" id="ck_form_options">
+      <input type="hidden" name="id" value="1706" id="landing_page_id">
+      <div class="ck_errorArea">
+        <div id="ck_error_msg" style="display:none">
+          <p>There was an error submitting your subscription. Please try again.</p>
+        </div>
+      </div>
+      <div class="ck_control_group ck_first_name_field_group">
+        <label class="ck_label" for="ck_firstNameField">First Name</label>
+        <input type="text" name="first_name" class="ck_first_name" id="ck_firstNameField">
+      </div>
+      <div class="ck_control_group ck_email_field_group">
+        <label class="ck_label" for="ck_emailField">Email Address</label>
+        <input type="email" name="email" class="ck_email_address" id="ck_emailField" required="">
+      </div>
+      <div class="ck_control_group ck_captcha2_h_field_group ck-captcha2-h" style="position: absolute !important;left: -999em !important;">
+        <label class="ck_label" for="ck_captcha2_h">We use this field to detect spam bots. If you fill this in, you will be marked as a spammer.</label>
+        <input type="text" name="captcha2_h" class="ck-captcha2-h" id="ck_captcha2_h">
+      </div>
+
+        <label class="ck_checkbox" style="display:none;">
+          <input class="optIn ck_course_opted" name="course_opted" type="checkbox" id="optIn" checked="">
+          <span class="ck_opt_in_prompt"><p>I'd like to receive a free 30 day Sencha Touch course by email.</p></span>
+        </label>
+
+      <button class="subscribe_button ck_subscribe_button btn fields" id="ck_subscribe_button">
+        Yes!
+      </button>
+      <span class="ck_guarantee">
+        
+          <a class="ck_powered_by" href="https://convertkit.com/?utm_campaign=poweredby">Powered by ConvertKit</a>
+      </span>
+    </form>
+  </div>
+
+</div>
+
+<div class="ck_close_link" style="display: none;">✕</div></div><div id="ck_overlay" style="display: none; opacity: 0.5;"></div><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;" title="Twitter analytics iframe" src="./Main.js_files/saved_resource(2).html"></iframe><div style="display: block; visibility: hidden; position: absolute; width: 106px; left: -10000px; top: -10000px;"><table cellpadding="0" cellspacing="0" dir="ltr" style="width:106px;" frame="void" rules="none" class=" gc-bubbleDefault pls-container"><tbody><tr class="gc-reset"><td class="pls-topLeft gc-reset"><img class="gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="./Main.js_files/border_3.gif"></td><td class="pls-topTail gc-reset"><img class="pls-tailbottom gc-reset" style="width:15px !important; height:9px !important; max-width: 15px !important; max-height: 9px !important;" src="./Main.js_files/spacer.gif"><img class="pls-spacerbottom gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="./Main.js_files/spacer.gif"></td><td class="pls-topRight gc-reset"><img class="gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="./Main.js_files/border_3.gif"></td></tr><tr class="gc-reset"><td class="pls-vertShimLeft gc-reset"><img class="gc-reset" style="width:1px !important; height:4px !important; max-width: 1px !important; max-height: 4px !important;" src="./Main.js_files/spacer.gif"></td><td class="pls-vertShim gc-reset"><img class="gc-reset" style="width:1px !important; height:4px !important; max-width: 1px !important; max-height: 4px !important;" src="./Main.js_files/spacer.gif"></td><td class="pls-vertShimRight gc-reset"><img class="pls-dropTR gc-reset" style="width:5px !important; height:4px !important; max-width: 5px !important; max-height: 4px !important;" src="./Main.js_files/spacer.gif"></td></tr><tr class="gc-reset"><td class="pls-contentLeft gc-reset"><img class="pls-tailright gc-reset" style="width:9px !important; height:15px !important; max-width: 9px !important; max-height: 15px !important;" src="./Main.js_files/spacer.gif"><img class="pls-spacerright gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="./Main.js_files/spacer.gif"></td><td class="pls-contentWrap gc-reset"><div class="goog-bubble-content gc-reset"><iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="margin:0px;position:absolute;z-index:1;border-style:none;outline:none;width:100px;" tabindex="0" vspace="0" width="100%" id="I0_1492701020858" name="I0_1492701020858" src="./Main.js_files/subscribe_embed(2).html"></iframe></div></td><td class="pls-dropRight gc-reset"><img class="pls-tailleft gc-reset" style="width:12px !important; height:19px !important; max-width: 12px !important; max-height: 19px !important;" src="./Main.js_files/spacer.gif"><img class="pls-spacerleft gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="./Main.js_files/spacer.gif"></td></tr><tr class="gc-reset"><td class="pls-bottomLeft gc-reset"><img class="gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="./Main.js_files/border_3.gif"></td><td class="gc-reset"><table cellpadding="0" cellspacing="0" style="width:100%" class="gc-reset"><tbody><tr class="gc-reset"><td class="pls-vert gc-reset"><img class="pls-dropBL gc-reset" style="width:4px !important; height:5px !important; max-width: 4px !important; max-height: 5px !important;" src="./Main.js_files/spacer.gif"></td><td class="pls-dropBottom gc-reset"><img class="pls-tailtop gc-reset" style="width:19px !important; height:13px !important; max-width: 19px !important; max-height: 13px !important;" src="./Main.js_files/spacer.gif"><img class="pls-spacertop gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="./Main.js_files/spacer.gif"></td></tr></tbody></table></td><td class="pls-vert gc-reset"><img class="pls-dropBR gc-reset" style="width:5px !important; height:5px !important; max-width: 5px !important; max-height: 5px !important;" src="./Main.js_files/spacer.gif"></td></tr></tbody></table></div><div style="display: block; visibility: hidden; position: absolute; width: 106px; left: -10000px; top: -10000px;"><table cellpadding="0" cellspacing="0" dir="ltr" style="width:106px;" frame="void" rules="none" class=" gc-bubbleDefault pls-container"><tbody><tr class="gc-reset"><td class="pls-topLeft gc-reset"><img class="gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="./Main.js_files/border_3.gif"></td><td class="pls-topTail gc-reset"><img class="pls-tailbottom gc-reset" style="width:15px !important; height:9px !important; max-width: 15px !important; max-height: 9px !important;" src="./Main.js_files/spacer.gif"><img class="pls-spacerbottom gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="./Main.js_files/spacer.gif"></td><td class="pls-topRight gc-reset"><img class="gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="./Main.js_files/border_3.gif"></td></tr><tr class="gc-reset"><td class="pls-vertShimLeft gc-reset"><img class="gc-reset" style="width:1px !important; height:4px !important; max-width: 1px !important; max-height: 4px !important;" src="./Main.js_files/spacer.gif"></td><td class="pls-vertShim gc-reset"><img class="gc-reset" style="width:1px !important; height:4px !important; max-width: 1px !important; max-height: 4px !important;" src="./Main.js_files/spacer.gif"></td><td class="pls-vertShimRight gc-reset"><img class="pls-dropTR gc-reset" style="width:5px !important; height:4px !important; max-width: 5px !important; max-height: 4px !important;" src="./Main.js_files/spacer.gif"></td></tr><tr class="gc-reset"><td class="pls-contentLeft gc-reset"><img class="pls-tailright gc-reset" style="width:9px !important; height:15px !important; max-width: 9px !important; max-height: 15px !important;" src="./Main.js_files/spacer.gif"><img class="pls-spacerright gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="./Main.js_files/spacer.gif"></td><td class="pls-contentWrap gc-reset"><div class="goog-bubble-content gc-reset"><iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="margin:0px;position:absolute;z-index:1;border-style:none;outline:none;width:100px;" tabindex="0" vspace="0" width="100%" id="I1_1492701020877" name="I1_1492701020877" src="./Main.js_files/subscribe_embed(3).html"></iframe></div></td><td class="pls-dropRight gc-reset"><img class="pls-tailleft gc-reset" style="width:12px !important; height:19px !important; max-width: 12px !important; max-height: 19px !important;" src="./Main.js_files/spacer.gif"><img class="pls-spacerleft gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="./Main.js_files/spacer.gif"></td></tr><tr class="gc-reset"><td class="pls-bottomLeft gc-reset"><img class="gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="./Main.js_files/border_3.gif"></td><td class="gc-reset"><table cellpadding="0" cellspacing="0" style="width:100%" class="gc-reset"><tbody><tr class="gc-reset"><td class="pls-vert gc-reset"><img class="pls-dropBL gc-reset" style="width:4px !important; height:5px !important; max-width: 4px !important; max-height: 5px !important;" src="./Main.js_files/spacer.gif"></td><td class="pls-dropBottom gc-reset"><img class="pls-tailtop gc-reset" style="width:19px !important; height:13px !important; max-width: 19px !important; max-height: 13px !important;" src="./Main.js_files/spacer.gif"><img class="pls-spacertop gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="./Main.js_files/spacer.gif"></td></tr></tbody></table></td><td class="pls-vert gc-reset"><img class="pls-dropBR gc-reset" style="width:5px !important; height:5px !important; max-width: 5px !important; max-height: 5px !important;" src="./Main.js_files/spacer.gif"></td></tr></tbody></table></div></body></html>
