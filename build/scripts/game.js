@@ -47,6 +47,7 @@ var Game = function (_Phaser$Game) {
 
 		_this.state.add('Preload', _Preload2.default, false);
 		_this.state.add('Main', _Main2.default, false);
+		_this.state.add('GameState', _GameState2.default, false);
 		_this.state.start('Preload');
 		return _this;
 	}
@@ -206,273 +207,159 @@ exports.default = GameState;
 },{"objects/RainbowText":2}],4:[function(require,module,exports){
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
 var _createClass = function () {
-    function defineProperties(target, props) {
-        for (var i = 0; i < props.length; i++) {
-            var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-        }
-    }return function (Constructor, protoProps, staticProps) {
-        if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-    };
+	function defineProperties(target, props) {
+		for (var i = 0; i < props.length; i++) {
+			var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+		}
+	}return function (Constructor, protoProps, staticProps) {
+		if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+	};
 }();
 
 function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-        throw new TypeError("Cannot call a class as a function");
-    }
+	if (!(instance instanceof Constructor)) {
+		throw new TypeError("Cannot call a class as a function");
+	}
 }
 
 function _possibleConstructorReturn(self, call) {
-    if (!self) {
-        throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-    }return call && (typeof call === "object" || typeof call === "function") ? call : self;
+	if (!self) {
+		throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+	}return call && (typeof call === "object" || typeof call === "function") ? call : self;
 }
 
 function _inherits(subClass, superClass) {
-    if (typeof superClass !== "function" && superClass !== null) {
-        throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
-    }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+	if (typeof superClass !== "function" && superClass !== null) {
+		throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+	}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 }
 
 var Main = function (_Phaser$State) {
-    _inherits(Main, _Phaser$State);
+	_inherits(Main, _Phaser$State);
 
-    function Main() {
-        _classCallCheck(this, Main);
+	function Main() {
+		_classCallCheck(this, Main);
 
-        return _possibleConstructorReturn(this, (Main.__proto__ || Object.getPrototypeOf(Main)).apply(this, arguments));
-    }
+		return _possibleConstructorReturn(this, (Main.__proto__ || Object.getPrototypeOf(Main)).apply(this, arguments));
+	}
 
-    _createClass(Main, [{
-        key: 'create',
-        value: function create() {
-            //  We're going to be using physics, so enable the Arcade Physics system
-            game.physics.startSystem(Phaser.Physics.ARCADE);
+	_createClass(Main, [{
+		key: 'create',
+		value: function create() {
 
-            //  A simple background for our game
-            sky = game.add.sprite(0, 0, 'sky');
-            sky.scale.setTo(2, 2);
+			this.game.physics.startSystem(Phaser.Physics.Arcade);
 
-            hunter = game.add.sprite(90, 75, 'subrohunter');
-            hunter.scale.setTo(.5, .5);
+			this.game.add.image(0, 0, 'sky').scale.setTo(2, 2);
 
-            //  The platforms group contains the ground and ledges then we enable physics on platforms
-            platforms = game.add.group();
-            platforms.enableBody = true;
+			this.game.add.sprite(90, 75, 'subrohunter').scale.setTo(.5, .5);
 
-            // Here we create the ground and scale it to fit the width of the game
-            var ground = platforms.create(0, game.world.height - 64, 'ground');
-            ground.scale.setTo(3, 2);
+			this.platforms = this.game.add.group();
+			this.platforms.enableBody = true;
 
-            //  This stops it from falling away when you jump on it
-            ground.body.immovable = true;
+			this.ground = this.platforms.create(0, this.game.world.height - 64, 'ground');
+			this.ground.scale.setTo(3, 2);
+			this.ground.body.immovable = true;
 
-            // The player and its settings
-            player = game.add.sprite(0, 540, 'ken');
-            player.scale.setTo(0.75, 0.75);
+			var player = this.game.add.sprite(0, 540, 'ken');
+			player.scale.setTo(0.75, 0.75);
 
-            black = game.add.sprite(0, 0, 'black');
-            black.alpha = 1;
+			var black = this.game.add.sprite(0, 0, 'black');
+			black.alpha = 1;
 
-            text1 = game.add.text(315, 300, 'Wilber Group', { fontSize: '30px', fill: '#ffffff', align: 'center', font: 'Press Start 2P' });
-            text1.alpha = 0;
+			var text1 = this.game.add.text(315, 300, 'Wilber Group', { fontSize: '30px', fill: '#ffffff', align: 'center', font: 'Press Start 2P' });
+			text1.alpha = 0;
 
-            text2 = game.add.text(390, 300, 'Presents', { fontSize: '30px', fill: '#ffffff', align: 'center', font: 'Press Start 2P' });
-            text2.alpha = 0;
+			var text2 = this.game.add.text(390, 300, 'Presents', { fontSize: '30px', fill: '#ffffff', align: 'center', font: 'Press Start 2P' });
+			text2.alpha = 0;
 
-            skip = game.add.text(810, 615, 'space bar to skip', { fontSize: '10px', fill: '#ffffff', font: 'Press Start 2P' });
-            skip.alpha = .2;
+			var skip = this.game.add.text(810, 615, 'space bar to skip', { fontSize: '10px', fill: '#ffffff', font: 'Press Start 2P' });
+			skip.alpha = .2;
 
-            start = game.add.text(300, 390, 'press the space bar to start', { fontSize: '15px', fill: '#ffffff', font: 'Press Start 2P' });
-            start.alpha = 0;
+			var start = this.game.add.text(300, 390, 'press the space bar to start', { fontSize: '15px', fill: '#ffffff', font: 'Press Start 2P' });
+			start.alpha = 0;
 
-            board = game.add.text(275, 425, 'press L to check the leaderboard', { fontSize: '15px', fill: '#ffffff', font: 'Press Start 2P' });
-            board.alpha = 0;
+			var board = this.game.add.text(275, 425, 'press L to check the leaderboard', { fontSize: '15px', fill: '#ffffff', font: 'Press Start 2P' });
+			board.alpha = 0;
 
-            function fadeOutBlack() {
-                game.add.tween(black).to({ alpha: 0 }, 0, Phaser.Easing.Linear.None, true, 0, 0, false);
-            }
+			function fadeOutBlack() {
+				this.game.add.tween(black).to({ alpha: 0 }, 0, Phaser.Easing.Linear.None, true, 0, 0, false);
+			}
 
-            function fadeInWilberGroup() {
-                game.add.tween(text1).to({ alpha: 1 }, 2500, Phaser.Easing.Linear.None, true, 0, 0, true);
-            }
+			function fadeInWilberGroup() {
+				this.game.add.tween(text1).to({ alpha: 1 }, 2500, Phaser.Easing.Linear.None, true, 0, 0, true);
+			}
 
-            function fadeInPresents() {
-                game.add.tween(text2).to({ alpha: 1 }, 2500, Phaser.Easing.Linear.None, true, 0, 0, true);
-            }
+			function fadeInPresents() {
+				this.game.add.tween(text2).to({ alpha: 1 }, 2500, Phaser.Easing.Linear.None, true, 0, 0, true);
+			}
 
-            function fadeOutSkip() {
-                game.add.tween(skip).to({ alpha: 0 }, 0, Phaser.Easing.Linear.None, true, 0, 0, false);
-            }
+			function fadeOutSkip() {
+				this.game.add.tween(skip).to({ alpha: 0 }, 0, Phaser.Easing.Linear.None, true, 0, 0, false);
+			}
 
-            function fadeInStart() {
-                game.add.tween(start).to({ alpha: 1 }, 0, Phaser.Easing.Linear.None, true, 0, -1, true);
-            }
+			function fadeInStart() {
+				this.game.add.tween(start).to({ alpha: 1 }, 0, Phaser.Easing.Linear.None, true, 0, -1, true);
+			}
 
-            function fadeInLeaderboard() {
-                game.add.tween(board).to({ alpha: 1 }, 0, Phaser.Easing.Linear.None, true, 0, 0, false);
-            }
+			function fadeInLeaderboard() {
+				this.game.add.tween(board).to({ alpha: 1 }, 0, Phaser.Easing.Linear.None, true, 0, 0, false);
+			}
 
-            function toControls() {
-                window.location = 'controls.html';
-            }
+			// function toControls() {
+			//     window.location = 'controls.html';
+			// }   
 
-            function spacebarToControls() {
-                spaceBar.onDown.add(toControls, this);
-            }
+			// function spacebarToControls() {
+			//     spaceBar.onDown.add(toControls, this);
+			// }
 
-            setTimeout(fadeOutSkip, 11000);
-            setTimeout(fadeInStart, 13500);
-            setTimeout(fadeInLeaderboard, 13500);
+			setTimeout(fadeOutSkip, 11000);
+			setTimeout(fadeInStart, 13500);
+			setTimeout(fadeInLeaderboard, 13500);
 
-            var skipIntroCredits = [setTimeout(fadeInWilberGroup, 500), setTimeout(fadeInPresents, 5950), setTimeout(fadeOutSkip, 11000), setTimeout(fadeOutBlack, 12866), setTimeout(Movement, 13000), setTimeout(slimeMove, 13000), setTimeout(spacebarToControls, 13000)];
+			var skipIntroCredits = [setTimeout(fadeInWilberGroup, 500), setTimeout(fadeInPresents, 5950), setTimeout(fadeOutSkip, 11000), setTimeout(fadeOutBlack, 12866)];
 
-            var clearAllIntervals = function clearAllIntervals() {
-                skipIntroCredits.forEach(function (item) {
-                    clearInterval(item);
-                });
-            };
+			var clearAllIntervals = function clearAllIntervals() {
+				skipIntroCredits.forEach(function (item) {
+					clearInterval(item);
+				});
+			};
 
-            // when they skip the intro (with spacebar)
-            var skipIntro = function skipIntro() {
-                clearAllIntervals();
-                black.destroy();
-                text1.destroy();
-                text2.destroy();
-                skip.destroy();
+			var skipIntro = function skipIntro() {
+				clearAllIntervals();
+				black.destroy();
+				text1.destroy();
+				text2.destroy();
+				skip.destroy();
 
-                fadeInStart();
-                fadeInLeaderboard();
+				fadeInStart();
+				fadeInLeaderboard();
 
-                Movement();
-                slimeMove();
-                spacebarToControls();
+				// Movement();
+				// slimeMove();
+				// spacebarToControls();
+			};
 
-                // sky = game.add.sprite(0, 0, 'sky');
-                // sky.scale.setTo(2, 2);
+			var spaceBar = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+			spaceBar.onDown.add(skipIntro, this);
+			// let l = this.game.input.keyboard.addKey(Phaser.Keyboard.L);
+			// l.onDown.add(checkScore, this);
+			var cursors = this.game.input.keyboard.createCursorKeys();
+		}
+	}, {
+		key: 'update',
+		value: function update() {}
+	}]);
 
-                // hunter = game.add.sprite(90, 75, 'subrohunter');
-                // hunter.scale.setTo(.5, .5);
-
-                // platforms = game.add.group();
-                // platforms.enableBody = true;
-
-                // // Here we create the ground and scale it to fit the width of the game
-                // var ground = platforms.create(0, game.world.height - 64, 'ground');
-                // ground.scale.setTo(3, 2);
-
-                // //  This stops it from falling away when you jump on it
-                // ground.body.immovable = true;
-
-                // // The player and its settings
-                // // player = game.add.sprite(0, 540, 'ken');
-                // // player.scale.setTo(0.75, 0.75);
-
-                // start = game.add.text(300, 390, 'press the space bar to start', { fontSize: '15px', fill: '#ffffff', font: 'Press Start 2P'});
-                // start.alpha = 0;
-
-                // board = game.add.text(275, 425, 'press L to check the leaderboard', { fontSize: '15px', fill: '#ffffff', font: 'Press Start 2P'});
-                // board.alpha = 0;
-
-                // function fadeInStart() {
-                // game.add.tween(start).to( { alpha: 1} , 0, Phaser.Easing.Linear.None, true, 0, -1, true);
-                // }
-
-                // function fadeInLeaderboard() {
-                // game.add.tween(board).to({ alpha: 1}, 0, Phaser.Easing.Linear.None, true, 0, 0, false);
-                // }
-
-                // setTimeout(fadeInStart, 1);
-                // setTimeout(fadeInLeaderboard, 1);
-
-                // spaceBar = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-                // spaceBar.onDown.add(toControls, this);
-
-                // set up view to be what you want here
-                // change action of spacebar to go  to level 1
-                // Movement();
-            };
-
-            //  Player physics properties. Give the little guy a slight bounce.
-            game.physics.arcade.enable(player);
-            player.body.bounce.y = 0.0;
-            player.body.gravity.y = 775;
-            player.body.collideWorldBounds = true;
-
-            //  Our three animations, walking left ,right and jumping.
-            player.animations.add('left', [4, 3, 2, 1], 10, true);
-            player.animations.add('right', [7, 8, 9, 10], 10, true);
-            player.animations.add('jumpleft', [0], 10, true);
-            player.animations.add('jumpright', [11], 10, true);
-            player.animations.add('standleft', [5], 10, true);
-            player.animations.add('standright', [6], 10, true);
-
-            // makes a stars group and enables physics
-            stars = game.add.group();
-            stars.enableBody = true;
-
-            // the bullet group contains all bullets and enables physics on them.
-            bullets = game.add.group();
-            bullets.enableBody = true;
-
-            // the slime group contains all slimes and enables physics on them. The for loop adds slimes to the game.
-            slimes = game.add.group();
-            slimes.enableBody = true;
-
-            slime1 = slimes.create(-100, 574, 'slime1');
-            slime1.anchor.setTo(.5, .5);
-            slime1.scale.x *= -1;
-
-            // controls the movement of the player and is being called on line 226 in a setTimeout
-            function Movement() {
-                pretend.move('right', 0, 2100);
-                pretend.move('up', 2100, 500);
-                pretend.fire(3000);
-                pretend.move('up', 4500, 21000);
-                pretend.move('right', 5400, 2250);
-                pretend.move('left', 7600, 4300);
-                pretend.move('right', 10000, 6500);
-                pretend.move('left', 16200, 4250);
-                pretend.move('right', 19000, 3575);
-            }
-
-            // controls the movement of the car and is being called on line 227 in a setTimeout
-            function slimeMove() {
-                if (animationRunning === false) {
-                    animationRunning = true;
-                    tweenRight = game.add.tween(slimes).to({ x: 1000 }, 4300, Phaser.Easing.Linear.None, true);
-                }
-            }
-
-            function startGame(game) {
-                setTimeout(function () {
-                    window.location = 'controls.html';
-                }, 500);
-            }
-
-            function checkScore() {
-                setTimeout(function () {
-                    window.location = 'scoreboard.html';
-                }, 500);
-            }
-
-            // this makes the spacebar the key that shoots bullets
-            spaceBar = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-            spaceBar.onDown.add(skipIntro, this);
-            l = game.input.keyboard.addKey(Phaser.Keyboard.L);
-            l.onDown.add(checkScore, this);
-            cursors = game.input.keyboard.createCursorKeys();
-
-            SoundFX.bindAudio();
-            SoundFX.splashBG();
-        }
-    }, {
-        key: 'update',
-        value: function update() {}
-    }]);
-
-    return Main;
+	return Main;
 }(Phaser.State);
+
+exports.default = Main;
 
 },{}],5:[function(require,module,exports){
 'use strict';
@@ -519,8 +406,8 @@ var Preload = function (_Phaser$State) {
 	}
 
 	_createClass(Preload, [{
-		key: 'create',
-		value: function create() {
+		key: 'preload',
+		value: function preload() {
 			this.game.load.image('black', 'assets/black 1000x650.png', 1000, 650);
 			this.game.load.image('sky', 'assets/sky.png');
 			this.game.load.image('shield', 'assets/wilber.png');
@@ -559,14 +446,15 @@ var Preload = function (_Phaser$State) {
 			this.game.load.audio('splashbgm', 'assets/audio/SubroHunterMain.mp3');
 			this.game.load.audio('credits', 'assets/audio/Credits.mp3');
 		}
+	}, {
+		key: 'create',
+		value: function create() {
+			this.game.state.start("Main");
+		}
 	}]);
 
 	return Preload;
 }(Phaser.State);
-
-function update() {
-	this.game.state.start("Main");
-}
 
 exports.default = Preload;
 

@@ -1,6 +1,6 @@
 class Preload extends Phaser.State {
 
-	create() {
+	preload() {
 		this.game.load.image('black', 'assets/black 1000x650.png', 1000, 650);
 	    this.game.load.image('sky', 'assets/sky.png');
 	    this.game.load.image('shield', 'assets/wilber.png');
@@ -39,10 +39,13 @@ class Preload extends Phaser.State {
 	    this.game.load.audio('splashbgm', 'assets/audio/SubroHunterMain.mp3');
 	    this.game.load.audio('credits', 'assets/audio/Credits.mp3');
 	}
+
+
+	create() {
+		this.game.state.start("Main");
+	}
+	
 }
 
-function update() {
-	this.game.state.start("Main");
-}
 
 export default Preload;
