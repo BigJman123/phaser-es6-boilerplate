@@ -1,7 +1,10 @@
+import Pretend from 'objects/Pretend';
+import Player from 'objects/Player';
+import Bullet from 'objects/Bullet';
+
 class Main extends Phaser.State {
 
 	create() {
-
 
 		this.game.physics.startSystem(Phaser.Physics.Arcade);
 
@@ -9,15 +12,17 @@ class Main extends Phaser.State {
 
 		this.game.add.sprite(90, 75, 'subrohunter').scale.setTo(.5, .5);
 
-		this.platforms = this.game.add.group();
-    	this.platforms.enableBody = true;
+		let platforms = this.game.add.group();
+    	platforms.enableBody = true;
 
-    	this.ground = this.platforms.create(0, this.game.world.height - 64, 'ground');
-    	this.ground.scale.setTo(3, 2);
-    	this.ground.body.immovable = true;
+    	let ground = platforms.create(0, this.game.world.height - 64, 'ground');
+    	ground.scale.setTo(3, 2);
+    	ground.body.immovable = true;
 
     	let player = this.game.add.sprite(0, 540, 'ken');
     	player.scale.setTo(0.75, 0.75);
+
+
 
     	let black = this.game.add.sprite(0, 0, 'black');
     	black.alpha = 1;
@@ -73,6 +78,8 @@ class Main extends Phaser.State {
     	setTimeout(fadeInStart, 13500);
     	setTimeout(fadeInLeaderboard, 13500);
 
+    	Pretend.move('right', 1000, 1000);
+
     	var skipIntroCredits = [
 	        setTimeout(fadeInWilberGroup, 500),
 	        setTimeout(fadeInPresents, 5950),
@@ -105,18 +112,69 @@ class Main extends Phaser.State {
 
 	    }
 
+	    // Player physics properties
+	    this.game.physics.arcade.enable(player);
+	    player.body.bounce.y = 0.0;
+	    player.body.gravity.y = 775;
+	    player.body.collideWorldBounds = true;
+
+	    // Player animations
+	    player.animations.add('left', [4, 3, 2, 1], 10, true);
+	    player.animations.add('right', [7, 8, 9, 10], 10, true);
+	    player.animations.add('jumpleft', [0], 10, true);
+	    player.animations.add('jumpright', [11], 10, true);
+	    player.animations.add('standleft', [5], 10, true);
+	    player.animations.add('standright', [6], 10, true);
+
+	    let bullets = this.game.add.group();
+	    bullets.enableBody = true;
+
+	    let slimes = this.game.add.group();
+	    slimes.enableBody = true;
+
+	    let slime1 = slimes.create(-100, 574, 'slime1');
+	    slime1.anchor.set(.5, .5);
+	    slime1.scale.x *= -1;
+
+	    let Movement = function() {
+	        Pretend.move('right', 0, 2100);
+	        Pretend.move('up', 2100, 500);
+	        Pretend.fire(3000);
+	        Pretend.move('up', 4500, 21000);
+	        Pretend.move('right', 5400, 2250);
+	        Pretend.move('left', 7600, 4300);
+	        Pretend.move('right', 10000, 6500);
+	        Pretend.move('left', 16200, 4250);
+	        Pretend.move('right', 19000, 3575);
+    	}
+
+    	let slimeMove = function() {
+    		if(animationRunning === false) {
+    			animationRunning = true;
+    			tweenRight = game.add.tween(slimes).to({x: 1000}, 4300, Phaser.Easing.Linear.None, true);
+    		}
+    	}
+
+    	// let startGame = function(game) {
+    	// 	setTimeout(() => {window.location = 'controls.html'}, 500);
+    	// }
+
+    	// let checkScore = function() {
+    	// 	setTimeout(() => {window.location = 'scoreboard.html'}, 500);
+    	// }
+
+
 
 	    let spaceBar = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 	    spaceBar.onDown.add(skipIntro, this);
 	    // let l = this.game.input.keyboard.addKey(Phaser.Keyboard.L);
 	    // l.onDown.add(checkScore, this);
 	    let cursors = this.game.input.keyboard.createCursorKeys();
-
 	}
 
 
 	update() {
-
+		let hitPlatform = this.game.physics.arcade.collide(player, platforms);
 	}
 }
 

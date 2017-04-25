@@ -55,7 +55,80 @@ var Game = function (_Phaser$Game) {
 
 new Game();
 
-},{"states/GameState":3,"states/Main":4,"states/Preload":5}],2:[function(require,module,exports){
+},{"states/GameState":6,"states/Main":7,"states/Preload":8}],2:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = {
+	create: function create() {
+		bullets = this.game.add.group();
+		bullets.enableBody = true;
+	}
+};
+
+},{}],3:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = {
+	playerCreate: function playerCreate(gravity, height) {
+		// The player and its settings
+		player = game.add.sprite(475, height, 'ken');
+		player.scale.setTo(0.75, 0.75);
+
+		//  Player physics properties. Give the little guy a slight bounce.
+		game.physics.arcade.enable(player);
+		player.body.bounce.y = 0.0;
+		player.body.gravity.y = gravity;
+		player.body.collideWorldBounds = true;
+
+		//  Player animations
+		player.animations.add('left', [4, 3, 2, 1], 10, true);
+		player.animations.add('right', [7, 8, 9, 10], 10, true);
+		player.animations.add('jumpleft', [0], 10, true);
+		player.animations.add('jumpright', [11], 10, true);
+		player.animations.add('standleft', [5], 10, true);
+		player.animations.add('standright', [6], 10, true);
+	}
+};
+
+},{}],4:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = {
+
+	direction: {
+		left: false,
+		right: false,
+		up: false,
+		down: false
+	},
+
+	move: function move(dir, at, duration) {
+		var _this = this;
+
+		setTimeout(function () {
+			_this.direction[dir] = true;
+		}, at);
+		setTimeout(function () {
+			_this.direction[dir] = false;
+		}, at + duration);
+	},
+	fire: function fire(at) {
+		setTimeout(function () {
+			return shootBullet();
+		}, at);
+	}
+};
+
+},{}],5:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -136,7 +209,7 @@ var RainbowText = function (_Phaser$Text) {
 
 exports.default = RainbowText;
 
-},{}],3:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -202,7 +275,7 @@ var GameState = function (_Phaser$State) {
 
 exports.default = GameState;
 
-},{"objects/RainbowText":2}],4:[function(require,module,exports){
+},{"objects/RainbowText":5}],7:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -218,6 +291,22 @@ var _createClass = function () {
 		if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
 	};
 }();
+
+var _Pretend = require('objects/Pretend');
+
+var _Pretend2 = _interopRequireDefault(_Pretend);
+
+var _Player = require('objects/Player');
+
+var _Player2 = _interopRequireDefault(_Player);
+
+var _Bullet = require('objects/Bullet');
+
+var _Bullet2 = _interopRequireDefault(_Bullet);
+
+function _interopRequireDefault(obj) {
+	return obj && obj.__esModule ? obj : { default: obj };
+}
 
 function _classCallCheck(instance, Constructor) {
 	if (!(instance instanceof Constructor)) {
@@ -257,12 +346,12 @@ var Main = function (_Phaser$State) {
 
 			this.game.add.sprite(90, 75, 'subrohunter').scale.setTo(.5, .5);
 
-			this.platforms = this.game.add.group();
-			this.platforms.enableBody = true;
+			var platforms = this.game.add.group();
+			platforms.enableBody = true;
 
-			this.ground = this.platforms.create(0, this.game.world.height - 64, 'ground');
-			this.ground.scale.setTo(3, 2);
-			this.ground.body.immovable = true;
+			var ground = platforms.create(0, this.game.world.height - 64, 'ground');
+			ground.scale.setTo(3, 2);
+			ground.body.immovable = true;
 
 			var player = this.game.add.sprite(0, 540, 'ken');
 			player.scale.setTo(0.75, 0.75);
@@ -321,6 +410,8 @@ var Main = function (_Phaser$State) {
 			setTimeout(fadeInStart, 13500);
 			setTimeout(fadeInLeaderboard, 13500);
 
+			_Pretend2.default.move('right', 1000, 1000);
+
 			var skipIntroCredits = [setTimeout(fadeInWilberGroup, 500), setTimeout(fadeInPresents, 5950), setTimeout(fadeOutSkip, 11000), setTimeout(fadeOutBlack, 12866)];
 
 			var clearAllIntervals = function clearAllIntervals() {
@@ -344,6 +435,58 @@ var Main = function (_Phaser$State) {
 				// spacebarToControls();
 			};
 
+			// Player physics properties
+			this.game.physics.arcade.enable(player);
+			player.body.bounce.y = 0.0;
+			player.body.gravity.y = 775;
+			player.body.collideWorldBounds = true;
+
+			// Player animations
+			player.animations.add('left', [4, 3, 2, 1], 10, true);
+			player.animations.add('right', [7, 8, 9, 10], 10, true);
+			player.animations.add('jumpleft', [0], 10, true);
+			player.animations.add('jumpright', [11], 10, true);
+			player.animations.add('standleft', [5], 10, true);
+			player.animations.add('standright', [6], 10, true);
+
+			var bullets = this.game.add.group();
+			bullets.enableBody = true;
+
+			var slimes = this.game.add.group();
+			slimes.enableBody = true;
+
+			var slime1 = slimes.create(-100, 574, 'slime1');
+			slime1.anchor.set(.5, .5);
+			slime1.scale.x *= -1;
+
+			var Movement = function Movement() {
+				_Pretend2.default.move('right', 0, 2100);
+				_Pretend2.default.move('up', 2100, 500);
+				_Pretend2.default.fire(3000);
+				_Pretend2.default.move('up', 4500, 21000);
+				_Pretend2.default.move('right', 5400, 2250);
+				_Pretend2.default.move('left', 7600, 4300);
+				_Pretend2.default.move('right', 10000, 6500);
+				_Pretend2.default.move('left', 16200, 4250);
+				_Pretend2.default.move('right', 19000, 3575);
+			};
+
+			var slimeMove = function slimeMove() {
+				if (animationRunning === false) {
+					animationRunning = true;
+					tweenRight = game.add.tween(slimes).to({ x: 1000 }, 4300, Phaser.Easing.Linear.None, true);
+				}
+			};
+
+			// let startGame = function(game) {
+			// 	setTimeout(() => {window.location = 'controls.html'}, 500);
+			// }
+
+			// let checkScore = function() {
+			// 	setTimeout(() => {window.location = 'scoreboard.html'}, 500);
+			// }
+
+
 			var spaceBar = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 			spaceBar.onDown.add(skipIntro, this);
 			// let l = this.game.input.keyboard.addKey(Phaser.Keyboard.L);
@@ -352,7 +495,9 @@ var Main = function (_Phaser$State) {
 		}
 	}, {
 		key: 'update',
-		value: function update() {}
+		value: function update() {
+			var hitPlatform = this.game.physics.arcade.collide(player, platforms);
+		}
 	}]);
 
 	return Main;
@@ -360,7 +505,7 @@ var Main = function (_Phaser$State) {
 
 exports.default = Main;
 
-},{}],5:[function(require,module,exports){
+},{"objects/Bullet":2,"objects/Player":3,"objects/Pretend":4}],8:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
