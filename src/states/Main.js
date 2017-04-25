@@ -37,27 +37,27 @@ class Main extends Phaser.State {
 		let board = this.game.add.text(275, 425, 'press L to check the leaderboard', { fontSize: '15px', fill: '#ffffff', font: 'Press Start 2P'});
 	    board.alpha = 0;
 
-	    function fadeOutBlack() {
+	    let fadeOutBlack = () => {
         	this.game.add.tween(black).to( { alpha: 0 }, 0, Phaser.Easing.Linear.None, true, 0, 0, false);
 	    }
 
-	    function fadeInWilberGroup() {
+	    let fadeInWilberGroup = () => {
 	        this.game.add.tween(text1).to({ alpha: 1}, 2500, Phaser.Easing.Linear.None, true, 0, 0, true);
 	    }
 
-	    function fadeInPresents() {
+	    let fadeInPresents = () => {
 	        this.game.add.tween(text2).to({ alpha: 1}, 2500, Phaser.Easing.Linear.None, true, 0, 0, true);
 	    }
 
-	    function fadeOutSkip() {
+	    let fadeOutSkip = () => {
 	        this.game.add.tween(skip).to( { alpha: 0 }, 0, Phaser.Easing.Linear.None, true, 0, 0, false); 
 	    }
 
-	    function fadeInStart() {
+	    let fadeInStart = () => {
 	        this.game.add.tween(start).to( { alpha: 1} , 0, Phaser.Easing.Linear.None, true, 0, -1, true);
 	    }
 
-	    function fadeInLeaderboard() {
+	    let fadeInLeaderboard = () => {
 	        this.game.add.tween(board).to({ alpha: 1}, 0, Phaser.Easing.Linear.None, true, 0, 0, false);
 	    }
 	    

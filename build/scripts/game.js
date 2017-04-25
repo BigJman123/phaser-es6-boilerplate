@@ -42,8 +42,6 @@ var Game = function (_Phaser$Game) {
 		_classCallCheck(this, Game);
 
 		var _this = _possibleConstructorReturn(this, (Game.__proto__ || Object.getPrototypeOf(Game)).call(this, 1000, 650, Phaser.AUTO, 'game', null));
-		// super(500, 500, Phaser.AUTO, 'content', null);
-
 
 		_this.state.add('Preload', _Preload2.default, false);
 		_this.state.add('Main', _Main2.default, false);
@@ -251,6 +249,7 @@ var Main = function (_Phaser$State) {
 	_createClass(Main, [{
 		key: 'create',
 		value: function create() {
+			var _this2 = this;
 
 			this.game.physics.startSystem(Phaser.Physics.Arcade);
 
@@ -286,29 +285,29 @@ var Main = function (_Phaser$State) {
 			var board = this.game.add.text(275, 425, 'press L to check the leaderboard', { fontSize: '15px', fill: '#ffffff', font: 'Press Start 2P' });
 			board.alpha = 0;
 
-			function fadeOutBlack() {
-				this.game.add.tween(black).to({ alpha: 0 }, 0, Phaser.Easing.Linear.None, true, 0, 0, false);
-			}
+			var fadeOutBlack = function fadeOutBlack() {
+				_this2.game.add.tween(black).to({ alpha: 0 }, 0, Phaser.Easing.Linear.None, true, 0, 0, false);
+			};
 
-			function fadeInWilberGroup() {
-				this.game.add.tween(text1).to({ alpha: 1 }, 2500, Phaser.Easing.Linear.None, true, 0, 0, true);
-			}
+			var fadeInWilberGroup = function fadeInWilberGroup() {
+				_this2.game.add.tween(text1).to({ alpha: 1 }, 2500, Phaser.Easing.Linear.None, true, 0, 0, true);
+			};
 
-			function fadeInPresents() {
-				this.game.add.tween(text2).to({ alpha: 1 }, 2500, Phaser.Easing.Linear.None, true, 0, 0, true);
-			}
+			var fadeInPresents = function fadeInPresents() {
+				_this2.game.add.tween(text2).to({ alpha: 1 }, 2500, Phaser.Easing.Linear.None, true, 0, 0, true);
+			};
 
-			function fadeOutSkip() {
-				this.game.add.tween(skip).to({ alpha: 0 }, 0, Phaser.Easing.Linear.None, true, 0, 0, false);
-			}
+			var fadeOutSkip = function fadeOutSkip() {
+				_this2.game.add.tween(skip).to({ alpha: 0 }, 0, Phaser.Easing.Linear.None, true, 0, 0, false);
+			};
 
-			function fadeInStart() {
-				this.game.add.tween(start).to({ alpha: 1 }, 0, Phaser.Easing.Linear.None, true, 0, -1, true);
-			}
+			var fadeInStart = function fadeInStart() {
+				_this2.game.add.tween(start).to({ alpha: 1 }, 0, Phaser.Easing.Linear.None, true, 0, -1, true);
+			};
 
-			function fadeInLeaderboard() {
-				this.game.add.tween(board).to({ alpha: 1 }, 0, Phaser.Easing.Linear.None, true, 0, 0, false);
-			}
+			var fadeInLeaderboard = function fadeInLeaderboard() {
+				_this2.game.add.tween(board).to({ alpha: 1 }, 0, Phaser.Easing.Linear.None, true, 0, 0, false);
+			};
 
 			// function toControls() {
 			//     window.location = 'controls.html';
