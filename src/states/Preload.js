@@ -47,5 +47,7 @@ class Preload extends Phaser.State {
 	
 }
 
+console.log('Assets loaded...');
+
 
 export default Preload;
