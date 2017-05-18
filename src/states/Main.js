@@ -3,11 +3,11 @@
 import Player from 'objects/Player';
 // import Bullet from 'objects/Bullet';
 
-class Main extends Phaser.State {
+export default class Main extends Phaser.State {
 
 	create() {
 
-		this.game.physics.startSystem(Phaser.Physics.Arcade);
+		this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
 		this.game.add.image(0, 0, 'sky').scale.setTo(2, 2);
 
@@ -20,13 +20,14 @@ class Main extends Phaser.State {
     	ground.scale.setTo(3, 2);
     	ground.body.immovable = true;
 
-    	this.player = new Player( {
+    	this.player = new Player({
     		game: this.game,
     		x: 475,
-    		y: 400,
+    		y: 500,
     		asset: 'ken',
     		frame: 6
     	});
+    	this.game.stage.addChild(this.player);
 
 	}
 
@@ -36,6 +37,4 @@ class Main extends Phaser.State {
 	}
 }
 
-console.log('Loaded Main...')
-
-export default Main;
+// console.log('Loaded Main...');

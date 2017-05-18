@@ -13,6 +13,10 @@ var _Main = require('states/Main');
 
 var _Main2 = _interopRequireDefault(_Main);
 
+var _Level = require('states/Level1');
+
+var _Level2 = _interopRequireDefault(_Level);
+
 var _GameState = require('states/GameState');
 
 var _GameState2 = _interopRequireDefault(_GameState);
@@ -50,6 +54,7 @@ var Game = function (_Phaser$Game) {
 		_this.state.add('Boot', _Boot2.default, false);
 		_this.state.add('Preload', _Preload2.default, false);
 		_this.state.add('Main', _Main2.default, false);
+		_this.state.add('Level1', _Level2.default, false);
 		_this.state.add('GameState', _GameState2.default, false);
 		_this.state.start('Boot');
 		return _this;
@@ -60,12 +65,68 @@ var Game = function (_Phaser$Game) {
 
 var game = new Game();
 
-},{"states/Boot":4,"states/GameState":5,"states/Main":6,"states/Preload":7}],2:[function(require,module,exports){
-'use strict';
+},{"states/Boot":5,"states/GameState":6,"states/Level1":7,"states/Main":8,"states/Preload":9}],2:[function(require,module,exports){
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
+
+var _createClass = function () {
+	function defineProperties(target, props) {
+		for (var i = 0; i < props.length; i++) {
+			var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+		}
+	}return function (Constructor, protoProps, staticProps) {
+		if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+	};
+}();
+
+function _classCallCheck(instance, Constructor) {
+	if (!(instance instanceof Constructor)) {
+		throw new TypeError("Cannot call a class as a function");
+	}
+}
+
+var Platform = function () {
+	function Platform(game) {
+		_classCallCheck(this, Platform);
+
+		this.game = game;
+		this.platforms = this.game.add.group();
+		this.platforms.enableBody = true;
+	}
+
+	_createClass(Platform, [{
+		key: "add",
+		value: function add(x, y, asset, w, h) {
+			var platform = this.platforms.create(x, y, asset);
+			platform.scale.setTo(w, h);
+			platform.body.immovable = true;
+		}
+	}]);
+
+	return Platform;
+}();
+
+exports.default = Platform;
+
+},{}],3:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () {
+	function defineProperties(target, props) {
+		for (var i = 0; i < props.length; i++) {
+			var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+		}
+	}return function (Constructor, protoProps, staticProps) {
+		if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+	};
+}();
 
 function _classCallCheck(instance, Constructor) {
 	if (!(instance instanceof Constructor)) {
@@ -97,7 +158,7 @@ var Player = function (_Phaser$Sprite) {
 
 		_classCallCheck(this, Player);
 
-		var _this = _possibleConstructorReturn(this, (Player.__proto__ || Object.getPrototypeOf(Player)).call(this, game, x, y, asset));
+		var _this = _possibleConstructorReturn(this, (Player.__proto__ || Object.getPrototypeOf(Player)).call(this, game, x, y, asset, frame));
 		// The player and its settings
 
 
@@ -107,25 +168,36 @@ var Player = function (_Phaser$Sprite) {
 
 		_this.game.physics.arcade.enable(_this);
 
-		game.physics.arcade.enable(_this);
 		_this.body.bounce.y = 0.0;
 		_this.body.collideWorldBounds = true;
 
-		_this.animations.add('left', [4, 3, 2, 1], 10, true);
-		_this.animations.add('right', [7, 8, 9, 10], 10, true);
-		_this.animations.add('jumpleft', [0], 10, true);
-		_this.animations.add('jumpright', [11], 10, true);
-		_this.animations.add('standleft', [5], 10, true);
-		_this.animations.add('standright', [6], 10, true);
+		// this.animations.add('left', [4, 3, 2, 1], 10, true);
+		// this.animations.add('right', [7, 8, 9, 10], 10, true);
+		// this.animations.add('jumpleft', [0], 10, true);
+		// this.animations.add('jumpright', [11], 10, true);
+		// this.animations.add('standleft', [5], 10, true);
+		// this.animations.add('standright', [6], 10, true);
 		return _this;
 	}
+
+	_createClass(Player, [{
+		key: "update",
+		value: function update() {
+			// 	if (this.cursors.left.isDown) {
+			// 	direction = -1;
+			// }
+			// else if (this.cursors.right.isDown) {
+			// 	direction = 1;
+			// }
+		}
+	}]);
 
 	return Player;
 }(Phaser.Sprite);
 
 exports.default = Player;
 
-},{}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -206,7 +278,7 @@ var RainbowText = function (_Phaser$Text) {
 
 exports.default = RainbowText;
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -267,7 +339,7 @@ console.log('Booting...');
 
 exports.default = Boot;
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -333,7 +405,104 @@ var GameState = function (_Phaser$State) {
 
 exports.default = GameState;
 
-},{"objects/RainbowText":3}],6:[function(require,module,exports){
+},{"objects/RainbowText":4}],7:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () {
+  function defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }return function (Constructor, protoProps, staticProps) {
+    if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+  };
+}();
+
+var _Player = require('../objects/Player.js');
+
+var _Player2 = _interopRequireDefault(_Player);
+
+var _Platform = require('../objects/Platform.js');
+
+var _Platform2 = _interopRequireDefault(_Platform);
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _possibleConstructorReturn(self, call) {
+  if (!self) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }return call && (typeof call === "object" || typeof call === "function") ? call : self;
+}
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+  }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+}
+
+var Level1 = function (_Phaser$State) {
+  _inherits(Level1, _Phaser$State);
+
+  function Level1() {
+    _classCallCheck(this, Level1);
+
+    return _possibleConstructorReturn(this, (Level1.__proto__ || Object.getPrototypeOf(Level1)).apply(this, arguments));
+  }
+
+  _createClass(Level1, [{
+    key: 'create',
+    value: function create() {
+
+      this.game.physics.startSystem(Phaser.Physics.ARCADE);
+
+      this.game.add.image(0, 0, 'sky').scale.setTo(2, 2);
+
+      // let platforms = this.game.add.group();
+      // platforms.enableBody = true;
+
+      var platforms = new _Platform2.default(this.game);
+      platforms.add(100, 100, 'ground', 2, 3);
+
+      // let ground = platforms.create(0, this.game.world.height - 64, 'ground');
+      // ground.scale.setTo(3, 2);
+      // ground.body.immovable = true;
+
+      this.player = new _Player2.default({
+        game: this.game,
+        x: 475,
+        y: 500,
+        asset: 'ken',
+        frame: 6
+      });
+      this.game.stage.addChild(this.player);
+
+      // Platform.create();
+    }
+  }, {
+    key: 'update',
+    value: function update() {}
+  }]);
+
+  return Level1;
+}(Phaser.State);
+
+exports.default = Level1;
+
+console.log('Loaded Level1...');
+
+},{"../objects/Platform.js":2,"../objects/Player.js":3}],8:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -393,7 +562,7 @@ var Main = function (_Phaser$State) {
     key: 'create',
     value: function create() {
 
-      this.game.physics.startSystem(Phaser.Physics.Arcade);
+      this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
       this.game.add.image(0, 0, 'sky').scale.setTo(2, 2);
 
@@ -409,10 +578,11 @@ var Main = function (_Phaser$State) {
       this.player = new _Player2.default({
         game: this.game,
         x: 475,
-        y: 400,
+        y: 500,
         asset: 'ken',
         frame: 6
       });
+      this.game.stage.addChild(this.player);
     }
   }, {
     key: 'update',
@@ -424,11 +594,12 @@ var Main = function (_Phaser$State) {
   return Main;
 }(Phaser.State);
 
-console.log('Loaded Main...');
+// console.log('Loaded Main...');
+
 
 exports.default = Main;
 
-},{"objects/Player":2}],7:[function(require,module,exports){
+},{"objects/Player":3}],9:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -516,7 +687,7 @@ var Preload = function (_Phaser$State) {
 	}, {
 		key: 'create',
 		value: function create() {
-			this.game.state.start("Main");
+			this.game.state.start("Level1");
 		}
 	}]);
 
